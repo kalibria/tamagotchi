@@ -1,0 +1,9 @@
+.mainField {
+    max-width: 600px;
+    max-height: 600px;
+    background-color: gray;
+}
+
+.image {
+    width: 400px;
+}

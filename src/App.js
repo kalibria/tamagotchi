@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import s from './App.module.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import EnterName from "./components/EnterName";
+
+
+
+const App = (props) => {
+    return <div className={s.mainField}>
+        <EnterName name={props.state.state.name}/>
+        <div>
+            <img className={s.image} alt="tamagotchi"
+                 src='https://previews.123rf.com/images/albertzig/albertzig1210/albertzig121001555/15841024-3d-monstre-mignon-de-bande-dessin%C3%A9e.jpg'/>
+        </div>
+        <div>
+            Status indicator
+        </div>
+        <div>
+            Food indicator
+        </div>
+        <div>
+            Age indicator
+        </div>
     </div>
-  );
+
 }
 
 export default App;
