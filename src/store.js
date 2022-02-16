@@ -5,7 +5,9 @@ export const store = {
         foodIndicator: "100%",
         ageIndicator: 3,
     }
-
 }
+
+
+
 
 
