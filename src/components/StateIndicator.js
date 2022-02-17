@@ -2,7 +2,7 @@ import React from "react";
 
 export  const StateIndicator = ({stateIndicator}) => {
     return <div>
-        {stateIndicator[0]}
+        <p>State: {stateIndicator[0]} </p>
     </div>
 }
 

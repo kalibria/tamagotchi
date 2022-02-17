@@ -7,3 +7,15 @@
 .image {
     width: 400px;
 }
+
+.foodIndicatorLine {
+    width: 100px;
+    height: 20px;
+    background-color: white;
+}
+
+.foodIndicator {
+    height: 20px;
+    background-color: green;
+}
+
