@@ -4,6 +4,7 @@ import style from './App.module.css';
 import EnterName from "./components/EnterName";
 import {StateIndicator} from "./components/StateIndicator";
 import {FoodIndicator} from "./components/FoodIndicator";
+import {AgeIndicator} from "./components/AgeIndicator";
 
 
 const App = ({store: {state: {name}, indicators}}) => {
@@ -16,9 +17,7 @@ const App = ({store: {state: {name}, indicators}}) => {
         <div>Live Indicators:
             <StateIndicator stateIndicator={indicators.state}/>
             <FoodIndicator foodIndicator={indicators.food}/>
-            <div>
-                Age indicator
-            </div>
+            <AgeIndicator ageIndicator={indicators.age}/>
         </div>
     </div>
 
