@@ -7,7 +7,7 @@ export const store = {
     },
     indicators: {
         state:  ["fine", "sick", "hungry", "dead"],
-        food: [0, 20, 40, 60, 80, 100],
+        food: [1, 20, 40, 60, 80, 100],
         age: [0, 1, 2, 3, 4, 5]
     },
 }

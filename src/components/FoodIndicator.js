@@ -3,13 +3,25 @@ import style from "../App.module.css";
 
 
 export const FoodIndicator = ({foodIndicator}) => {
-    const widthFoodIndicator = {
-        width: `${foodIndicator[4]}%`
+    let colorIndicator;
+    if(foodIndicator <= 20){
+        colorIndicator = "red"
+    }else if(foodIndicator > 20 && foodIndicator <= 60){
+        colorIndicator = "yellow"
+    } else {
+        colorIndicator = "green"
+    }
+
+    const styleFoodIndicator = {
+        height: "20px",
+        width: `${foodIndicator[4]}%`,
+        backgroundColor: colorIndicator,
     };
+
     return <div>
         Food: <div className={style.foodIndicatorLine}>
-        <div className={style.foodIndicator} style={widthFoodIndicator} ></div>
-    </div>{widthFoodIndicator.width}
+        <div style={styleFoodIndicator} ></div>
+    </div>{styleFoodIndicator.width}
     </div>
 }
 
