@@ -17,7 +17,6 @@ const EnterName = (props) => {
         }else{
             setError(true)
         }
-
     }
 
     const handleChange = (e) => {
@@ -39,8 +38,6 @@ const EnterName = (props) => {
                 </button>
             </div>}
         {error && <Error/>}
-
-
     </div>
 }
 
