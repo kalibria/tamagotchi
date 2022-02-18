@@ -16,7 +16,7 @@ const App = ({store: {state: {name}, indicators}}) => {
         </div>
         <div>Live Indicators:
             <StateIndicator stateIndicator={indicators.states}/>
-            <FoodIndicator foodIndicator={indicators.food}/>
+            <FoodIndicator foodIndicator={indicators.foodPercent}/>
             <AgeIndicator ageIndicator={indicators.age}/>
         </div>
     </div>

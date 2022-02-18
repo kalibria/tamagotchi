@@ -27,12 +27,12 @@ export const store = {
             }
         },
         foodPercent: {
-            1: 1,
-            20: 20,
-            40: 40,
-            60: 60,
-            80: 80,
-            100: 100
+            noFood: 1,
+            veryLittle: 20,
+            notSoMuch: 40,
+            moreThanAHalf: 60,
+            almostFull: 80,
+            full: 100
         },
         age: 0
     }
