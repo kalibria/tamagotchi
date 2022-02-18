@@ -1,15 +1,41 @@
 export const store = {
     state: {
-        name:"",
+        name: "",
         statusIndicator: "fine",
         foodIndicator: "100%",
         ageIndicator: 3,
     },
     indicators: {
-        state:  ["fine", "sick", "hungry", "dead"],
-        food: [1, 20, 40, 60, 80, 100],
-        age: [0, 1, 2, 3, 4, 5]
-    },
+        states: {
+            fine: {
+                uiText: "fine",
+                nextStatus:["sick", "hungry", "dead"]
+            },
+            sick: {
+                uiText: "sick",
+                prevStatus: ["fine"],
+                nextStatus: ["hungry", "dead"]
+            },
+            hungry: {
+                uiText: "hungry",
+                prevStatus: ["fine", "sick"],
+                nextStatus: ["dead"]
+            },
+            dead: {
+                uiText: "dead",
+                prevStatus: ["fine", "sick", "dead"]
+            }
+        },
+        foodPercent: {
+            1: 1,
+            20: 20,
+            40: 40,
+            60: 60,
+            80: 80,
+            100: 100
+        },
+        age: 0
+    }
 }
 
 

@@ -15,7 +15,7 @@ const App = ({store: {state: {name}, indicators}}) => {
                  src='https://previews.123rf.com/images/albertzig/albertzig1210/albertzig121001555/15841024-3d-monstre-mignon-de-bande-dessin%C3%A9e.jpg'/>
         </div>
         <div>Live Indicators:
-            <StateIndicator stateIndicator={indicators.state}/>
+            <StateIndicator stateIndicator={indicators.states}/>
             <FoodIndicator foodIndicator={indicators.food}/>
             <AgeIndicator ageIndicator={indicators.age}/>
         </div>
