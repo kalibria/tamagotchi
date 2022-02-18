@@ -11,7 +11,8 @@ const EnterName = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(isValid(state)){
+        console.log("state", state)
+        if(isValid(state) && state!==" "){
             setEditMode(false);
             setError(false)
         }else{
