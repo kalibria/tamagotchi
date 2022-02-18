@@ -3,12 +3,11 @@ import style from "../App.module.css";
 
 
 export const FoodIndicator = ({foodIndicator}) => {
-    console.log("percent",foodIndicator);
-    let foodPercent = foodIndicator[2];
     let colorIndicator;
-    if(foodPercent <= 20){
+    if(foodIndicator <= 20){
         colorIndicator = "red"
-    }else if(foodPercent > 20 && foodPercent <= 60){
+    }else if(foodIndicator > 20 && foodIndicator <= 60){
+        console.log("color")
         colorIndicator = "yellow"
     } else {
         colorIndicator = "green"
@@ -16,7 +15,7 @@ export const FoodIndicator = ({foodIndicator}) => {
 
     const styleFoodIndicator = {
         height: "20px",
-        width: `${foodPercent}%`,
+        width: `${foodIndicator}%`,
         backgroundColor: colorIndicator,
     };
 

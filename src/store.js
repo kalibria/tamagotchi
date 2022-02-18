@@ -26,7 +26,7 @@ export const store = {
                 prevStatus: ["fine", "sick", "dead"]
             }
         },
-        foodPercent: {
+        foodPercents: {
             noFood: 1,
             veryLittle: 20,
             notSoMuch: 40,
@@ -34,7 +34,10 @@ export const store = {
             almostFull: 80,
             full: 100
         },
-        age: 0
+        age: {
+            currentAge: 0,
+            maxAge: 5
+        }
     }
 }
 
