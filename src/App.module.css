@@ -1,9 +1,28 @@
 .mainField {
     max-width: 600px;
-    max-height: 600px;
+    max-height: 750px;
     background-color: gray;
 }
 
 .image {
     width: 400px;
 }
+
+.foodIndicatorLine {
+    width: 100px;
+    height: 20px;
+    background-color: white;
+}
+
+.foodIndicatorRed {
+    background-color: red;
+}
+
+.foodIndicatorYellow {
+    background-color: yellowgreen;
+}
+
+.foodIndicatorGreen {
+    background-color: green;
+}
+
