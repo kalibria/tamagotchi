@@ -1,9 +1,9 @@
-export const store = {
+export const config = {
     state: {
         name: "",
         statusIndicator: "fine",
         foodIndicator: "100%",
-        ageIndicator: 3,
+        ageIndicator: 3
     },
     indicators: {
         states: {

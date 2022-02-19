@@ -4,43 +4,34 @@ import isValid from "../common/isValid";
 import Error from "../common/error";
 
 
-const EnterName = (props) => {
-    const [state, setState] = useState(props.name);
-    const [editMode, setEditMode] = useState(true);
+const EnterName = ({name, setPetName}) => {
+    const [letters, setLetters] = useState(name);
     const [error, setError] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("state", state)
-        if(isValid(state) && state!==" "){
-            setEditMode(false);
-            setError(false)
-        }else{
-            setError(true)
+        if (isValid(letters) && name !== " ") {
+            setError(false);
+            setPetName(letters);
+        } else {
+            setError(true);
         }
     }
 
     const handleChange = (e) => {
-        setState(e.target.value);
+        setLetters(e.target.value);
     }
 
     return <div>
-        {editMode
-            ? <form onBlur={handleSubmit}>
-                <input type="text" placeholder="Please, enter Latin letters!"  name="name" value={state}
-                       onChange={handleChange}/>
-                <button onClick={handleSubmit}>save</button>
-            </form>
-            : <div>
-                <div>{state}</div>
-                <button onClick={() => {
-                    setEditMode(true)
-                }}>Edit name
-                </button>
-            </div>}
+
+        <form onBlur={handleSubmit}>
+            <input type="text" placeholder="Please, enter Latin letters!" name="name" value={letters}
+                   onChange={handleChange}/>
+            <button onClick={handleSubmit}>save</button>
+        </form>
+
         {error && <Error/>}
     </div>
+
 }
-
-
-export default EnterName;
+    export default EnterName;

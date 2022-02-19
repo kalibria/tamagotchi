@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-import {store} from "./store";
+import {config} from "./store";
 
 import './index.css';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App store={store}/>
+        <App config={config}/>
     </React.StrictMode>,
     document.getElementById('root')
 );
