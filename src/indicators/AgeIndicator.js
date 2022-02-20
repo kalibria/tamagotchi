@@ -1,9 +1,12 @@
 import React from "react";
 
 
-export const AgeIndicator = ({ageIndicator}) => {
+export const AgeIndicator = ({age, maxAge}) => {
     return <div>
-        <p>Age: {ageIndicator.currentAge} </p>
+        {age <= maxAge
+            ? <p>Age: {age} </p>
+            : <p>Dead</p>
+        }
     </div>
 }
 

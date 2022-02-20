@@ -1,9 +1,9 @@
 export const config = {
     state: {
         name: "",
-        statusIndicator: "fine",
-        foodIndicator: "40",
-        ageIndicator: 3
+        initialStatus: "fine",
+        initialFoodPercent: "40",
+        initialAge: 0
     },
     indicators: {
         states: {
@@ -35,7 +35,6 @@ export const config = {
             full: 100
         },
         age: {
-            currentAge: 0,
             maxAge: 5
         }
     }
