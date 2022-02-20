@@ -1,4 +1,3 @@
-import { render, screen } from "@testing-library/react";
 import isValid from "./isValid";
 
 describe("isValid", () => {

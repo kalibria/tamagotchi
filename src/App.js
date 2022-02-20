@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import style from "./App.module.css";
 
-import EnterName from "./components/EnterName";
-import { MainField } from "./components/MainField";
-import PetName from "./components/PetName";
+import PetName from "./name/PetName";
+import {MainField} from "./mainField/MainField";
+import EnterName from "./name/EnterName";
+
+
 
 export const App = ({
   config: {
