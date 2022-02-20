@@ -9,16 +9,16 @@ import EnterName from "./name/EnterName";
 
 export const App = ({
   config: {
-    state: { name },
+    state,
     indicators,
   },
 }) => {
-  const [petName, setPetName] = useState(name);
+  const [petName, setPetName] = useState(state.name);
   if (petName) {
     return (
       <div className={style.field}>
         <PetName petName={petName} />
-        <MainField indicators={indicators} />
+        <MainField indicators={indicators} state={state}/>
       </div>
     );
   } else {

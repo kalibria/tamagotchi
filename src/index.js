@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-import {config} from "./store";
+import {config} from "./config";
 
 import './index.css';
 

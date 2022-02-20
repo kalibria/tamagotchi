@@ -2,7 +2,7 @@ export const config = {
     state: {
         name: "",
         statusIndicator: "fine",
-        foodIndicator: "100%",
+        foodIndicator: "40",
         ageIndicator: 3
     },
     indicators: {
