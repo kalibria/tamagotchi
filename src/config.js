@@ -2,7 +2,7 @@ export const config = {
     state: {
         name: "",
         initialStatus: "fine",
-        initialFoodPercent: "40",
+        initialFoodPercent: "100",
         initialAge: 0
     },
     indicators: {
@@ -27,12 +27,10 @@ export const config = {
             }
         },
         foodPercents: {
-            noFood: 1,
-            veryLittle: 20,
-            notSoMuch: 40,
-            moreThanAHalf: 60,
-            almostFull: 80,
-            full: 100
+            0: "red",
+            35: "orange",
+            70: "yellow",
+            100: "green"
         },
         age: {
             maxAge: 5

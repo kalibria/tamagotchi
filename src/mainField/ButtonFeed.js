@@ -1,15 +1,14 @@
-import React from 'react';
+import React from "react";
 
+const ButtonFeed = ({ setFoodPercent, setAge, age, setButtonFeedEntered }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setButtonFeedEntered(true);
+    setFoodPercent(100);
+    setAge(age + 1);
+  };
 
-const ButtonFeed = ({foodIndicator, setFoodPercent, setAge, age}) => {
-
-    const handleSubmit = () => {
-        setFoodPercent(foodIndicator.full);
-        setAge(age + 1)
-        console.log("buttonFeed", foodIndicator)
-    }
-
-    return <button onClick={handleSubmit}>Feed</button>
-}
+  return <button onClick={handleSubmit}>Feed</button>;
+};
 
 export default ButtonFeed;

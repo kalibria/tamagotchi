@@ -9,20 +9,29 @@
 }
 
 .foodIndicatorLine {
-    width: 100px;
+    width: 150px;
     height: 20px;
+    position: relative;
+    background-image: linear-gradient(to right, red,yellow, green);
+}
+
+.whiteBlock{
+    position: absolute;
+    height: 100%;
     background-color: white;
+    right: 0px;
 }
 
-.foodIndicatorRed {
-    background-color: red;
+.animation {
+    animation-name: increaseWhiteBlock;
+    animation-duration: 60s;
+    animation-fill-mode: forwards;
 }
 
-.foodIndicatorYellow {
-    background-color: yellowgreen;
+@keyframes increaseWhiteBlock {
+    0% { width: 0px}
+    100% {width: 100%}
+
 }
 
-.foodIndicatorGreen {
-    background-color: green;
-}
 

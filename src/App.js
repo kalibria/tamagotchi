@@ -2,23 +2,16 @@ import React, { useState } from "react";
 import style from "./App.module.css";
 
 import PetName from "./name/PetName";
-import {MainField} from "./mainField/MainField";
+import { MainField } from "./mainField/MainField";
 import EnterName from "./name/EnterName";
 
-
-
-export const App = ({
-  config: {
-    state,
-    indicators,
-  },
-}) => {
+export const App = ({ config: { state, indicators } }) => {
   const [petName, setPetName] = useState(state.name);
   if (petName) {
     return (
       <div className={style.field}>
         <PetName petName={petName} />
-        <MainField indicators={indicators} state={state}/>
+        <MainField indicators={indicators} state={state} />
       </div>
     );
   } else {

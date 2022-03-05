@@ -1,29 +1,56 @@
-import React from "react";
+import React, { createRef, useEffect, useRef, useState } from "react";
 import style from "../App.module.css";
 
-export const FoodIndicator = ({ foodPercent }) => {
-  let colorIndicator;
-  if (foodPercent <= 20) {
-    colorIndicator = "red";
-  } else if (foodPercent > 20 && foodPercent <= 60) {
-    colorIndicator = "yellow";
-  } else {
-    colorIndicator = "green";
-  }
+export const FoodIndicator = ({
+  foodPercent,
+  setFoodPercent,
+  buttonFeed,
+  setButtonFeedEntered,
+}) => {
+  const getWidthEl = () => {
+    const whiteBlockEl = document.getElementById("whiteBlock");
+    let widthWhiteBlockEl = window
+      .getComputedStyle(whiteBlockEl)
+      .getPropertyValue("width");
 
-  const styleFoodIndicator = {
-    height: "20px",
-    width: `${foodPercent}%`,
-    backgroundColor: colorIndicator,
+    return widthWhiteBlockEl;
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      let widthEl = getWidthEl();
+
+      if (widthEl === "100px" || foodPercent === 0 || buttonFeed === true) {
+        setButtonFeedEntered(false);
+        return () => clearInterval(interval);
+      } else {
+        setFoodPercent(foodPercent - 1);
+      }
+    }, 495);
+
+    return () => clearInterval(interval);
+  });
 
   return (
     <div>
       Food:{" "}
       <div className={style.foodIndicatorLine}>
-        <div style={styleFoodIndicator}></div>
+        {buttonFeed ? (
+          <div>
+            <div className={style.whiteBlock} id="whiteBlock"></div>
+            <div
+              className={style.whiteBlock + " " + style.animation}
+              id="whiteBlock"
+            ></div>
+          </div>
+        ) : (
+          <div
+            className={style.whiteBlock + " " + style.animation}
+            id="whiteBlock"
+          ></div>
+        )}
       </div>
-      {styleFoodIndicator.width}
+      {foodPercent} %
     </div>
   );
 };
