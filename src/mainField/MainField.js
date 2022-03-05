@@ -10,7 +10,7 @@ export const MainField = ({ state, indicators }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
   const [age, setAge] = useState(state.initialAge);
   const [buttonFeedEntered, setButtonFeedEntered] = useState(false);
-
+  const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   return (
     <div>
       <div>
@@ -30,7 +30,7 @@ export const MainField = ({ state, indicators }) => {
       <div>
         Life Indicators:
         <StateIndicator
-          stateIndicator={indicators.states}
+          stateIndicator={stateIndicator}
           foodPercent={foodPercent}
         />
         <FoodIndicator
@@ -39,6 +39,7 @@ export const MainField = ({ state, indicators }) => {
           buttonFeed={buttonFeedEntered}
           setButtonFeedEntered={setButtonFeedEntered}
           colors={indicators.foodPercents}
+          setStateIndicator={setStateIndicator}
         />
         <AgeIndicator age={age} maxAge={indicators.age.maxAge} />
       </div>

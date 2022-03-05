@@ -6,7 +6,15 @@ export const FoodIndicator = ({
   setFoodPercent,
   buttonFeed,
   setButtonFeedEntered,
+  setStateIndicator,
 }) => {
+  useEffect(() => {
+    if (foodPercent < 35) {
+      setStateIndicator("hungry");
+      if (foodPercent === 0) setStateIndicator("dead");
+    } else setStateIndicator("fine");
+  }, [foodPercent]);
+
   const getWidthEl = () => {
     const whiteBlockEl = document.getElementById("whiteBlock");
     let widthWhiteBlockEl = window
