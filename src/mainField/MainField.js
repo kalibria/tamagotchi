@@ -32,6 +32,7 @@ export const MainField = ({ state, indicators }) => {
         <StateIndicator
           stateIndicator={stateIndicator}
           foodPercent={foodPercent}
+          setStateIndicator={setStateIndicator}
         />
         <FoodIndicator
           foodPercent={foodPercent}
@@ -39,7 +40,6 @@ export const MainField = ({ state, indicators }) => {
           buttonFeed={buttonFeedEntered}
           setButtonFeedEntered={setButtonFeedEntered}
           colors={indicators.foodPercents}
-          setStateIndicator={setStateIndicator}
         />
         <AgeIndicator age={age} maxAge={indicators.age.maxAge} />
       </div>
