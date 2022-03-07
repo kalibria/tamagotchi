@@ -31,7 +31,7 @@ export const FoodIndicator = ({
         stateIndicator === "sick"
       ) {
         setButtonFeedEntered(false);
-        return () => clearInterval(interval);
+        clearInterval(interval);
       } else {
         setFoodPercent(foodPercent - 1);
       }
