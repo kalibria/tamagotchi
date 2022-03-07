@@ -26,6 +26,7 @@ export const MainField = ({ state, indicators }) => {
         setAge={setAge}
         age={age}
         setButtonFeedEntered={setButtonFeedEntered}
+        stateIndicator={stateIndicator}
       />
       <div>
         Life Indicators:
