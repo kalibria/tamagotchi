@@ -40,6 +40,7 @@ export const MainField = ({ state, indicators }) => {
           buttonFeed={buttonFeedEntered}
           setButtonFeedEntered={setButtonFeedEntered}
           colors={indicators.foodPercents}
+          stateIndicator={stateIndicator}
         />
         <AgeIndicator age={age} maxAge={indicators.age.maxAge} />
       </div>

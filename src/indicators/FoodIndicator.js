@@ -6,6 +6,7 @@ export const FoodIndicator = ({
   setFoodPercent,
   buttonFeed,
   setButtonFeedEntered,
+  stateIndicator,
 }) => {
   const getWidthEl = () => {
     const whiteBlockEl = document.getElementById("whiteBlock");
@@ -16,11 +17,19 @@ export const FoodIndicator = ({
     return widthWhiteBlockEl;
   };
 
+  const [animation, setAnimation] = useState("running");
   useEffect(() => {
+    if (stateIndicator === "sick") setAnimation("paused");
+
     const interval = setInterval(() => {
       let widthEl = getWidthEl();
 
-      if (widthEl === "100px" || foodPercent === 0 || buttonFeed === true) {
+      if (
+        widthEl === "100px" ||
+        foodPercent === 0 ||
+        buttonFeed === true ||
+        stateIndicator === "sick"
+      ) {
         setButtonFeedEntered(false);
         return () => clearInterval(interval);
       } else {
@@ -46,6 +55,7 @@ export const FoodIndicator = ({
         ) : (
           <div
             className={style.whiteBlock + " " + style.animation}
+            style={{ animationPlayState: animation }}
             id="whiteBlock"
           ></div>
         )}
