@@ -28,7 +28,8 @@ export const FoodIndicator = ({
         widthEl === "100px" ||
         foodPercent === 0 ||
         buttonFeed === true ||
-        stateIndicator === "sick"
+        stateIndicator === "sick" ||
+        stateIndicator === "dead"
       ) {
         setButtonFeedEntered(false);
         clearInterval(interval);

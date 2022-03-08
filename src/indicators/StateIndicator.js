@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
-import { getRandomNumber } from "../illnessTreatment/randomSickness";
+import {
+  calcDuration,
+  setStateDependingRandomNum,
+  setStateDependingStateIndicator,
+} from "../illnessTreatment/petIllness";
 
 export const StateIndicator = ({
   stateIndicator,
@@ -7,25 +11,17 @@ export const StateIndicator = ({
   setStateIndicator,
 }) => {
   useEffect(() => {
-    if (foodPercent < 35) {
-      setStateIndicator("hungry");
-      if (foodPercent === 0) setStateIndicator("dead");
-    } else {
-      setStateIndicator("fine");
-    }
+    setStateDependingStateIndicator(foodPercent, setStateIndicator);
   }, [foodPercent]);
 
   const maxNumForGetRandomNumber = 2;
 
   useEffect(() => {
-    let timerId = setInterval(() => {
-      let randomNumber = getRandomNumber(maxNumForGetRandomNumber);
-      console.log("randomNumber", randomNumber);
-      if (randomNumber === 1) {
-        setStateIndicator("sick");
-        clearInterval(timerId);
-      }
-    }, 7000);
+    setStateDependingRandomNum(maxNumForGetRandomNumber, setStateIndicator);
+  }, [stateIndicator]);
+
+  useEffect(() => {
+    calcDuration(stateIndicator, setStateIndicator);
   }, [stateIndicator]);
 
   return (
