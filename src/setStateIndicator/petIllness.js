@@ -2,15 +2,6 @@ export const getRandomNumber = (max) => {
   return Math.floor(Math.random() * max);
 };
 
-export const setStateDependingStateIndicator = (foodPercent, setIndicator) => {
-  if (foodPercent < 35) {
-    setIndicator("hungry");
-    if (foodPercent === 0) setIndicator("dead");
-  } else {
-    setIndicator("fine");
-  }
-};
-
 export const setStateDependingRandomNum = (maxNum, setIndicator) => {
   let timerId = setInterval(() => {
     let randomNumber = getRandomNumber(maxNum);

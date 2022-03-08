@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import {
   calcDuration,
   setStateDependingRandomNum,
-  setStateDependingStateIndicator,
-} from "../illnessTreatment/petIllness";
+} from "../setStateIndicator/petIllness";
+import { setStateDependingFoodPercent } from "../setStateIndicator/stateDependingFoodPercent";
 
 export const StateIndicator = ({
   stateIndicator,
@@ -11,7 +11,7 @@ export const StateIndicator = ({
   setStateIndicator,
 }) => {
   useEffect(() => {
-    setStateDependingStateIndicator(foodPercent, setStateIndicator);
+    setStateDependingFoodPercent(foodPercent, setStateIndicator);
   }, [foodPercent]);
 
   const maxNumForGetRandomNumber = 2;
