@@ -1,10 +1,16 @@
 import React from "react";
 
-const ButtonFeed = ({ setFoodPercent, setAge, age, setButtonFeedEntered }) => {
+const ButtonFeed = ({
+  setFoodPercent,
+  setAge,
+  age,
+  setButtonFeedEntered,
+  initialFoodPercent,
+}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setButtonFeedEntered(true);
-    setFoodPercent(100);
+    setFoodPercent(initialFoodPercent);
     setAge(age + 1);
   };
 
