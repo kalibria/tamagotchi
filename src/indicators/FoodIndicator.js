@@ -4,8 +4,8 @@ import style from "../App.module.css";
 export const FoodIndicator = ({
   foodPercent,
   setFoodPercent,
-  buttonFeed,
-  setButtonFeedEntered,
+  buttonFeedEnabled,
+  setButtonFeedEnabled,
   stateIndicator,
 }) => {
   const getWidthEl = () => {
@@ -27,11 +27,11 @@ export const FoodIndicator = ({
       if (
         widthEl === "100px" ||
         foodPercent === 0 ||
-        buttonFeed === true ||
+        buttonFeedEnabled === true ||
         stateIndicator === "sick" ||
         stateIndicator === "dead"
       ) {
-        setButtonFeedEntered(false);
+        setButtonFeedEnabled(false);
         clearInterval(interval);
       } else {
         setFoodPercent(foodPercent - 1);
@@ -45,7 +45,7 @@ export const FoodIndicator = ({
     <div>
       Food:{" "}
       <div className={style.foodIndicatorLine}>
-        {buttonFeed ? (
+        {buttonFeedEnabled ? (
           <div>
             <div className={style.whiteBlock} id="whiteBlock"></div>
             <div

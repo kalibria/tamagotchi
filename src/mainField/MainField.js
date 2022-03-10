@@ -9,7 +9,7 @@ import ButtonFeed from "./ButtonFeed";
 export const MainField = ({ state, indicators }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
   const [age, setAge] = useState(state.initialAge);
-  const [buttonFeedEntered, setButtonFeedEntered] = useState(false);
+  const [buttonFeedEnabled, setButtonFeedEnabled] = useState(false);
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   return (
     <div>
@@ -25,7 +25,7 @@ export const MainField = ({ state, indicators }) => {
         setFoodPercent={setFoodPercent}
         setAge={setAge}
         age={age}
-        setButtonFeedEntered={setButtonFeedEntered}
+        setButtonFeedEnabled={setButtonFeedEnabled}
         stateIndicator={stateIndicator}
       />
       <div>
@@ -38,8 +38,8 @@ export const MainField = ({ state, indicators }) => {
         <FoodIndicator
           foodPercent={foodPercent}
           setFoodPercent={setFoodPercent}
-          buttonFeed={buttonFeedEntered}
-          setButtonFeedEntered={setButtonFeedEntered}
+          buttonFeedEnabled={buttonFeedEnabled}
+          setButtonFeedEnabled={setButtonFeedEnabled}
           colors={indicators.foodPercents}
           stateIndicator={stateIndicator}
         />
