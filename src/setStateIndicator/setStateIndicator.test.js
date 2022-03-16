@@ -2,9 +2,28 @@ import { setStateDependingFoodPercent } from "./stateDependingFoodPercent";
 
 describe("setStateIndicator", () => {
   describe("setState depending on foodPercent", function () {
-    test("indicator hungry", () => {
-      const result = setStateDependingFoodPercent(15);
-      expect(result).toBe("hungry");
+    it('should call setIndicator with "hungry" if food percent is less than 35', function () {
+      const mockSetIndicator = jest.fn();
+      const foodPercent = 34;
+      setStateDependingFoodPercent(foodPercent, mockSetIndicator);
+      expect(mockSetIndicator).toHaveBeenCalledWith("hungry");
+      expect(mockSetIndicator).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call setIndicator with "dead" if food percent is 0', function () {
+      const mockSetIndicator = jest.fn();
+      const foodPercent = 0;
+      setStateDependingFoodPercent(foodPercent, mockSetIndicator);
+      expect(mockSetIndicator).toHaveBeenCalledWith("dead");
+      expect(mockSetIndicator).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call setIndicator with "fine" if food percent is 35 and above', function () {
+      const mockSetIndicator = jest.fn();
+      const foodPercent = 35;
+      setStateDependingFoodPercent(foodPercent, mockSetIndicator);
+      expect(mockSetIndicator).toHaveBeenCalledWith("fine");
+      expect(mockSetIndicator).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -15,35 +34,7 @@ describe("setStateIndicator", () => {
   //
   //   test("allows upper and lower case letters", () => {
   //     const result = isValid("John");
-  //     expect(result).toBe(true);
-  //   });
-  //
-  //   test("allows spase between latin letters", () => {
-  //     const result = isValid("John Smith");
-  //     expect(result).toBe(true);
-  //   });
-  // });
-  //
-  // describe("result false", function () {
-  //   test("disallows multiple spaces", () => {
-  //     const result = isValid("   ");
-  //     expect(result).toBe(false);
-  //   });
-  //
-  //   test("disallows only spaces without latin letters", () => {
-  //     const result = isValid(" ");
-  //     expect(result).toBe(false);
-  //   });
-  //
-  //   test("disallows not latin letters", () => {
-  //     const result = isValid("тест");
-  //     expect(result).toBe(false);
-  //   });
-  //
-  //   test("disallows digits", () => {
-  //     const result = isValid("234pkh");
-  //     expect(result).toBe(false);
-  //   });
+  //     expect(result).toBe(true);c   });
   //
   //   test("disallows special symbols", () => {
   //     const result = isValid("#$%kjh");
