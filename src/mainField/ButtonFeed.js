@@ -15,7 +15,7 @@ const ButtonFeed = ({
   };
   let button;
 
-  if (stateIndicator === "sick") {
+  if (stateIndicator === "sick" || stateIndicator === "dead") {
     button = (
       <button onClick={handleSubmit} disabled>
         Feed

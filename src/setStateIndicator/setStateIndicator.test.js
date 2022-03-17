@@ -1,4 +1,9 @@
 import { setStateDependingFoodPercent } from "./stateDependingFoodPercent";
+import {
+  setStateDependingDuration,
+  setStateDependingRandomNum,
+} from "./petIllness";
+import * as testContainer from "./petIllness";
 
 describe("setStateIndicator", () => {
   describe("setState depending on foodPercent", function () {
@@ -27,18 +32,25 @@ describe("setStateIndicator", () => {
     });
   });
 
-  //   test("allows dashes", () => {
-  //     const result = isValid("John-Jack");
-  //     expect(result).toBe(true);
+  // describe("setStateDependingRandomNum", () => {
+  //   it('should call setIndicator with "sick" if randomNumber is 1', function () {
+  //     const mockSetIndicator = jest.fn();
+  //     jest.spyOn(testContainer, "getRandomNumber").mockResolvedValue(1);
+  //     const maxNum = 2;
+  //
+  //     setStateDependingRandomNum(maxNum, mockSetIndicator);
+  //     expect(mockSetIndicator).toHaveBeenCalledWith("sick");
+  //     expect(mockSetIndicator).toHaveBeenCalledTimes(1);
   //   });
+  // });
+
+  // describe("setStateDependingDuration", () => {
+  //   it('should call setIndicator with "dead" if durationIllness more than 15', () => {
+  //     const mockSetInterval = jest.fn();
+  //     jest.runAllTimers();
+  //     setStateDependingDuration(mockSetInterval);
   //
-  //   test("allows upper and lower case letters", () => {
-  //     const result = isValid("John");
-  //     expect(result).toBe(true);c   });
-  //
-  //   test("disallows special symbols", () => {
-  //     const result = isValid("#$%kjh");
-  //     expect(result).toBe(false);
+  //     expect(mockSetInterval).toHaveBeenCalledWith("dead");
   //   });
   // });
 });
