@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import {
+  findDurationSickness,
   setStateDependingDuration,
   setStateDependingRandomNum,
 } from "../setStateIndicator/petIllness";
@@ -24,7 +25,7 @@ export const StateIndicator = ({
 
   useEffect(() => {
     if (stateIndicator === "sick") {
-      setStateDependingDuration(setStateIndicator);
+      findDurationSickness(setStateIndicator);
     }
   }, [stateIndicator]);
 

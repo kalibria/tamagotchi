@@ -1,9 +1,7 @@
 import { setStateDependingFoodPercent } from "./stateDependingFoodPercent";
-import {
-  setStateDependingDuration,
-  setStateDependingRandomNum,
-} from "./petIllness";
-import * as testContainer from "./petIllness";
+import { setStateDependingRandomNum } from "./petIllness";
+
+import * as _getRandomNumber from "./petIllness";
 
 describe("setStateIndicator", () => {
   describe("setState depending on foodPercent", function () {
@@ -32,15 +30,19 @@ describe("setStateIndicator", () => {
     });
   });
 
-  // describe("setStateDependingRandomNum", () => {
-  //   it('should call setIndicator with "sick" if randomNumber is 1', function () {
-  //     const mockSetIndicator = jest.fn();
-  //     jest.spyOn(testContainer, "getRandomNumber").mockResolvedValue(1);
-  //     const maxNum = 2;
+  // describe("timers", () => {
+  //   it('should call setIndicator with "sick" if the random number is 1', () => {
+  //     jest.useFakeTimers();
   //
-  //     setStateDependingRandomNum(maxNum, mockSetIndicator);
+  //     jest.spyOn(_getRandomNumber, "getRandomNumber").mockReturnValue(1);
+  //
+  //     const mockSetIndicator = jest.fn();
+  //
+  //     setStateDependingRandomNum(999, mockSetIndicator);
+  //
+  //     jest.advanceTimersByTime(7000);
+  //
   //     expect(mockSetIndicator).toHaveBeenCalledWith("sick");
-  //     expect(mockSetIndicator).toHaveBeenCalledTimes(1);
   //   });
   // });
 

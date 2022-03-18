@@ -7,6 +7,8 @@ export const FoodIndicator = ({
   buttonFeedEnabled,
   setButtonFeedEnabled,
   stateIndicator,
+  animation,
+  setAnimation,
 }) => {
   const getWidthEl = () => {
     const whiteBlockEl = document.getElementById("whiteBlock");
@@ -17,7 +19,7 @@ export const FoodIndicator = ({
     return widthWhiteBlockEl;
   };
 
-  const [animation, setAnimation] = useState("running");
+  // const [animation, setAnimation] = useState("running");
   useEffect(() => {
     if (stateIndicator === "sick") setAnimation("paused");
 

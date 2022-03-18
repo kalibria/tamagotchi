@@ -12,6 +12,7 @@ export const MainField = ({ state, indicators }) => {
   const [age, setAge] = useState(state.initialAge);
   const [buttonFeedEnabled, setButtonFeedEnabled] = useState(false);
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
+  const [animation, setAnimation] = useState("running");
   return (
     <div>
       <div>
@@ -29,8 +30,14 @@ export const MainField = ({ state, indicators }) => {
           age={age}
           setButtonFeedEnabled={setButtonFeedEnabled}
           stateIndicator={stateIndicator}
+          state={state}
         />
-        <ButtonTreat stateIndicator={stateIndicator} />
+        <ButtonTreat
+          stateIndicator={stateIndicator}
+          setStateIndicator={setStateIndicator}
+          setAnimation={setAnimation}
+          setButtonFeedEnabled={setButtonFeedEnabled}
+        />
       </div>
       <div>
         Life Indicators:
@@ -46,6 +53,8 @@ export const MainField = ({ state, indicators }) => {
           setButtonFeedEnabled={setButtonFeedEnabled}
           colors={indicators.foodPercents}
           stateIndicator={stateIndicator}
+          animation={animation}
+          setAnimation={setAnimation}
         />
         <AgeIndicator age={age} maxAge={indicators.age.maxAge} />
       </div>

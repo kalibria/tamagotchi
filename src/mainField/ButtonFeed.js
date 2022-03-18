@@ -6,11 +6,12 @@ const ButtonFeed = ({
   age,
   setButtonFeedEnabled,
   stateIndicator,
+  state,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setButtonFeedEnabled(true);
-    setFoodPercent(100);
+    setFoodPercent(state.initialFoodPercent);
     setAge(age + 1);
   };
   let button;
