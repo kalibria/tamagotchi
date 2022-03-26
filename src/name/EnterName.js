@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 
-import isValid from "../common/isValid";
-import Error from "../common/error";
-
+import isValid from "../validates/isValid";
+import Error from "../validates/error";
 
 const EnterName = ({name, setPetName}) => {
     const [letters, setLetters] = useState(name);
