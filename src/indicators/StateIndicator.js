@@ -28,7 +28,7 @@ export const StateIndicator = ({
     () => {
       if (stateIndicator === "sick") setStateIndicator("dead");
     },
-    !buttonTreatDisabled ? null : 15000
+    buttonTreatDisabled ? null : 15000
   );
 
   return (

@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import style from "../App.module.css";
 
 export const FoodIndicator = ({
@@ -19,7 +19,6 @@ export const FoodIndicator = ({
     return widthWhiteBlockEl;
   };
 
-  // const [animation, setAnimation] = useState("running");
   useEffect(() => {
     if (stateIndicator === "sick") setAnimation("paused");
 
@@ -49,9 +48,10 @@ export const FoodIndicator = ({
       <div className={style.foodIndicatorLine}>
         {buttonFeedEnabled ? (
           <div>
-            <div className={style.whiteBlock} id="whiteBlock"></div>
+            {/*<div className={style.whiteBlock} id="whiteBlock"></div>*/}
             <div
               className={style.whiteBlock + " " + style.animation}
+              style={{ animationPlayState: animation }}
               id="whiteBlock"
             ></div>
           </div>
