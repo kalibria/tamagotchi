@@ -13,16 +13,3 @@ export const setStateDependingRandomNum = (maxNum, setIndicator) => {
     }
   }, 7000);
 };
-
-export const findDurationSickness = (setIndicator) => {
-  let arrDurations = [];
-  let timerId = setInterval(() => {
-    let secOfSickness = new Date().getSeconds();
-    arrDurations.push(secOfSickness);
-
-    if (arrDurations.length > 15) {
-      setIndicator("dead");
-      clearInterval(timerId);
-    }
-  }, 1000);
-};

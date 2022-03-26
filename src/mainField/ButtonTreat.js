@@ -5,15 +5,14 @@ export const ButtonTreat = ({
   setStateIndicator,
   setAnimation,
   setButtonFeedEnabled,
+  buttonTreatDisabled,
+  setButtonTreatDisabled,
 }) => {
-  const [disabled, setDisabled] = useState(true);
-
   useEffect(() => {
-    console.log("state", stateIndicator);
     if (stateIndicator === "sick") {
-      setDisabled(false);
+      setButtonTreatDisabled(false);
     } else if (stateIndicator === "dead") {
-      setDisabled(true);
+      setButtonTreatDisabled(true);
     }
   }, [stateIndicator]);
 
@@ -22,14 +21,12 @@ export const ButtonTreat = ({
     setStateIndicator("fine");
     setAnimation("running");
     setButtonFeedEnabled("false");
-    setDisabled(true);
+    setButtonTreatDisabled(true);
   };
-
-  console.log("disabled", disabled);
 
   return (
     <div>
-      <button disabled={disabled} onClick={handleSubmit}>
+      <button disabled={buttonTreatDisabled} onClick={handleSubmit}>
         Treat
       </button>
     </div>

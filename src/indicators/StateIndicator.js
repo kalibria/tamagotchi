@@ -5,11 +5,13 @@ import {
   setStateDependingRandomNum,
 } from "../setStateIndicator/petIllness";
 import { setStateDependingFoodPercent } from "../setStateIndicator/stateDependingFoodPercent";
+import { useTimeout } from "usehooks-ts";
 
 export const StateIndicator = ({
   stateIndicator,
   foodPercent,
   setStateIndicator,
+  buttonTreatDisabled,
 }) => {
   useEffect(() => {
     setStateDependingFoodPercent(foodPercent, setStateIndicator);
@@ -23,11 +25,12 @@ export const StateIndicator = ({
     }
   }, [stateIndicator]);
 
-  useEffect(() => {
-    if (stateIndicator === "sick") {
-      findDurationSickness(setStateIndicator);
-    }
-  }, [stateIndicator]);
+  useTimeout(
+    () => {
+      if (stateIndicator === "sick") setStateIndicator("dead");
+    },
+    !buttonTreatDisabled ? null : 15000
+  );
 
   return (
     <div>
