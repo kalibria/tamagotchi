@@ -14,6 +14,7 @@ export const MainField = ({ state, indicators }) => {
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   const [animation, setAnimation] = useState("running");
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
+  const [isRecovered, setIsRecovered] = useState(false);
   return (
     <div>
       <div>
@@ -40,6 +41,7 @@ export const MainField = ({ state, indicators }) => {
           setButtonFeedEnabled={setButtonFeedEnabled}
           buttonTreatDisabled={buttonTreatDisabled}
           setButtonTreatDisabled={setButtonTreatDisabled}
+          setIsRecovered={setIsRecovered}
         />
       </div>
       <div>
@@ -49,6 +51,7 @@ export const MainField = ({ state, indicators }) => {
           foodPercent={foodPercent}
           setStateIndicator={setStateIndicator}
           buttonTreatDisabled={buttonTreatDisabled}
+          isRecovered={isRecovered}
         />
         <FoodIndicator
           foodPercent={foodPercent}

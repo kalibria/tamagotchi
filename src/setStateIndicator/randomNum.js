@@ -11,5 +11,5 @@ export const setStateDependingRandomNum = (maxNum, setIndicator) => {
       clearInterval(timerId);
       return;
     }
-  }, 7000);
+  }, 5000);
 };

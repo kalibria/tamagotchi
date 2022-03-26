@@ -7,6 +7,7 @@ export const ButtonTreat = ({
   setButtonFeedEnabled,
   buttonTreatDisabled,
   setButtonTreatDisabled,
+  setIsRecovered,
 }) => {
   useEffect(() => {
     if (stateIndicator === "sick") {
@@ -22,6 +23,7 @@ export const ButtonTreat = ({
     setAnimation("running");
     setButtonFeedEnabled("false");
     setButtonTreatDisabled(true);
+    setIsRecovered(true);
   };
 
   return (

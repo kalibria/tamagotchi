@@ -1,9 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  findDurationSickness,
-  setStateDependingDuration,
-  setStateDependingRandomNum,
-} from "../setStateIndicator/petIllness";
+import { setStateDependingRandomNum } from "../setStateIndicator/randomNum";
 import { setStateDependingFoodPercent } from "../setStateIndicator/stateDependingFoodPercent";
 import { useTimeout } from "usehooks-ts";
 
@@ -12,6 +8,7 @@ export const StateIndicator = ({
   foodPercent,
   setStateIndicator,
   buttonTreatDisabled,
+  isRecovered,
 }) => {
   useEffect(() => {
     setStateDependingFoodPercent(foodPercent, setStateIndicator);
@@ -21,7 +18,9 @@ export const StateIndicator = ({
 
   useEffect(() => {
     if (stateIndicator === "fine" || stateIndicator === "hungry") {
-      setStateDependingRandomNum(maxNumForGetRandomNumber, setStateIndicator);
+      if (!isRecovered) {
+        setStateDependingRandomNum(maxNumForGetRandomNumber, setStateIndicator);
+      }
     }
   }, [stateIndicator]);
 
