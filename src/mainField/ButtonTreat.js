@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 export const ButtonTreat = ({
   stateIndicator,
   setStateIndicator,
-  setAnimation,
   setButtonFeedEnabled,
   buttonTreatDisabled,
   setButtonTreatDisabled,
@@ -20,7 +19,6 @@ export const ButtonTreat = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     setStateIndicator("fine");
-    setAnimation("running");
     setButtonFeedEnabled("false");
     setButtonTreatDisabled(true);
     setIsRecovered(true);

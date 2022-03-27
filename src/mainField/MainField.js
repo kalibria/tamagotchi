@@ -14,6 +14,7 @@ export const MainField = ({ state, indicators }) => {
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
   const [isRecovered, setIsRecovered] = useState(false);
+
   return (
     <div>
       <div>
@@ -50,13 +51,15 @@ export const MainField = ({ state, indicators }) => {
           setStateIndicator={setStateIndicator}
           buttonTreatDisabled={buttonTreatDisabled}
           isRecovered={isRecovered}
+          age={age}
+          maxAge={indicators.age.maxAge}
         />
         <FoodIndicator
           foodPercent={foodPercent}
           setFoodPercent={setFoodPercent}
           stateIndicator={stateIndicator}
         />
-        <AgeIndicator age={age} maxAge={indicators.age.maxAge} />
+        <AgeIndicator age={age} />
       </div>
     </div>
   );

@@ -9,10 +9,16 @@ export const StateIndicator = ({
   setStateIndicator,
   buttonTreatDisabled,
   isRecovered,
+  age,
+  maxAge,
 }) => {
   useEffect(() => {
     setStateDependingFoodPercent(foodPercent, setStateIndicator);
   }, [foodPercent]);
+
+  useEffect(() => {
+    if (age > maxAge) setStateIndicator("dead");
+  }, [age]);
 
   const maxNumForGetRandomNumber = 2;
 

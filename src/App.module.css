@@ -12,30 +12,6 @@
     width: 300px;
 }
 
-/*.foodIndicatorLine {*/
-/*    width: 150px;*/
-/*    height: 20px;*/
-/*    position: relative;*/
-/*    background-image: linear-gradient(to right, red,yellow, green);*/
-/*}*/
 
-/*.whiteBlock{*/
-/*    position: absolute;*/
-/*    height: 100%;*/
-/*    background-color: white;*/
-/*    right: 0px;*/
-/*}*/
-
-/*.animation {*/
-/*    animation-name: increaseWhiteBlock;*/
-/*    animation-duration: 60s;*/
-/*    animation-fill-mode: forwards;*/
-/*}*/
-
-/*@keyframes increaseWhiteBlock {*/
-/*    0% { width: 0px}*/
-/*    100% {width: 100%}*/
-
-/*}*/
 
 

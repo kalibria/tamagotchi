@@ -33,7 +33,7 @@ export const config = {
       100: "green",
     },
     age: {
-      maxAge: 10,
+      maxAge: 5,
     },
   },
 };
