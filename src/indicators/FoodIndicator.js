@@ -3,6 +3,7 @@ import style from "../App.module.css";
 import { Progress } from "antd";
 import "antd/dist/antd.css";
 import { useInterval } from "usehooks-ts";
+import { INTERVAL_TIME } from "../variables/variables";
 
 const ProgressLine = ({ foodPercent }) => (
   <>
@@ -22,7 +23,6 @@ export const FoodIndicator = ({
   setFoodPercent,
   stateIndicator,
 }) => {
-  const intervalTime = 500;
   const condition_for_clearUseInterval =
     foodPercent === 0 || stateIndicator === "sick" || stateIndicator === "dead";
 
@@ -30,7 +30,7 @@ export const FoodIndicator = ({
     () => {
       setFoodPercent(foodPercent - 1);
     },
-    condition_for_clearUseInterval ? null : intervalTime
+    condition_for_clearUseInterval ? null : INTERVAL_TIME
   );
 
   return (

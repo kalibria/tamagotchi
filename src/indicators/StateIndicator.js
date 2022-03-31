@@ -2,6 +2,10 @@ import React, { useEffect } from "react";
 import { setStateDependingRandomNum } from "../setStateIndicator/randomNum";
 import { setStateDependingFoodPercent } from "../setStateIndicator/stateDependingFoodPercent";
 import { useTimeout } from "usehooks-ts";
+import {
+  MAX_NUM_FOR_GetRandomNumber,
+  SICK_PET_TIME_TILL_DEATH_MS,
+} from "../variables/variables";
 
 export const StateIndicator = ({
   stateIndicator,
@@ -20,13 +24,13 @@ export const StateIndicator = ({
     if (age > maxAge) setStateIndicator("dead");
   }, [age]);
 
-  const maxNumForGetRandomNumber = 2;
-  const SICK_PET_TIME_TILL_DEATH_MS = 15000;
-
   useEffect(() => {
     if (stateIndicator === "fine" || stateIndicator === "hungry") {
       if (!isRecovered) {
-        setStateDependingRandomNum(maxNumForGetRandomNumber, setStateIndicator);
+        setStateDependingRandomNum(
+          MAX_NUM_FOR_GetRandomNumber,
+          setStateIndicator
+        );
       }
     }
   }, [stateIndicator]);
