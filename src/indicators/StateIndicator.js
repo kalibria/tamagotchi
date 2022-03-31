@@ -21,6 +21,7 @@ export const StateIndicator = ({
   }, [age]);
 
   const maxNumForGetRandomNumber = 2;
+  const SICK_PET_TIME_TILL_DEATH_MS = 15000;
 
   useEffect(() => {
     if (stateIndicator === "fine" || stateIndicator === "hungry") {
@@ -34,7 +35,7 @@ export const StateIndicator = ({
     () => {
       if (stateIndicator === "sick") setStateIndicator("dead");
     },
-    buttonTreatDisabled ? null : 15000
+    buttonTreatDisabled ? null : SICK_PET_TIME_TILL_DEATH_MS
   );
 
   return (

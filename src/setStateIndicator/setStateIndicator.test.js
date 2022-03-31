@@ -29,30 +29,4 @@ describe("setStateIndicator", () => {
       expect(mockSetIndicator).toHaveBeenCalledTimes(1);
     });
   });
-
-  // describe("timers", () => {
-  //   it('should call setIndicator with "sick" if the random number is 1', () => {
-  //     jest.useFakeTimers();
-  //
-  //     jest.spyOn(_getRandomNumber, "getRandomNumber").mockReturnValue(1);
-  //
-  //     const mockSetIndicator = jest.fn();
-  //
-  //     setStateDependingRandomNum(999, mockSetIndicator);
-  //
-  //     jest.advanceTimersByTime(7000);
-  //
-  //     expect(mockSetIndicator).toHaveBeenCalledWith("sick");
-  //   });
-  // });
-
-  // describe("setStateDependingDuration", () => {
-  //   it('should call setIndicator with "dead" if durationIllness more than 15', () => {
-  //     const mockSetInterval = jest.fn();
-  //     jest.runAllTimers();
-  //     setStateDependingDuration(mockSetInterval);
-  //
-  //     expect(mockSetInterval).toHaveBeenCalledWith("dead");
-  //   });
-  // });
 });
