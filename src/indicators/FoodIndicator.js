@@ -23,14 +23,14 @@ export const FoodIndicator = ({
   stateIndicator,
 }) => {
   const intervalTime = 500;
+  const condition_for_clearUseInterval =
+    foodPercent === 0 || stateIndicator === "sick" || stateIndicator === "dead";
 
   useInterval(
     () => {
       setFoodPercent(foodPercent - 1);
     },
-    foodPercent === 0 || stateIndicator === "sick" || stateIndicator === "dead"
-      ? null
-      : intervalTime
+    condition_for_clearUseInterval ? null : intervalTime
   );
 
   return (
