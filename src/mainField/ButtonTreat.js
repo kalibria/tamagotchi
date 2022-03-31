@@ -19,7 +19,7 @@ export const ButtonTreat = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     setStateIndicator("fine");
-    setButtonFeedEnabled("false");
+    setButtonFeedEnabled(false);
     setButtonTreatDisabled(true);
     setIsRecovered(true);
   };
