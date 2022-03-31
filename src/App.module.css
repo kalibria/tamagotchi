@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 .field {
     max-width: 600px;
     max-height: 750px;
@@ -8,30 +10,10 @@
     width: 400px;
 }
 
-.foodIndicatorLine {
-    width: 150px;
-    height: 20px;
-    position: relative;
-    background-image: linear-gradient(to right, red,yellow, green);
+.progressLine {
+    width: 300px;
 }
 
-.whiteBlock{
-    position: absolute;
-    height: 100%;
-    background-color: white;
-    right: 0px;
-}
 
-.animation {
-    animation-name: increaseWhiteBlock;
-    animation-duration: 60s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes increaseWhiteBlock {
-    0% { width: 0px}
-    100% {width: 100%}
-
-}
 
 

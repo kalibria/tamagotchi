@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const ButtonFeed = ({
   setFoodPercent,
   setAge,
   age,
-  setButtonFeedEntered,
-  initialFoodPercent,
+  setButtonFeedEnabled,
+  buttonFeedEnabled,
+  stateIndicator,
+  state,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    setButtonFeedEntered(true);
-    setFoodPercent(initialFoodPercent);
+    setButtonFeedEnabled(false);
+    setFoodPercent(state.initialFoodPercent);
     setAge(age + 1);
   };
+  useEffect(() => {
+    if (stateIndicator === "sick" || stateIndicator === "dead") {
+      setButtonFeedEnabled(true);
+    } else setButtonFeedEnabled(false);
+  }, [stateIndicator]);
 
-  return <button onClick={handleSubmit}>Feed</button>;
+  return (
+    <div>
+      <button disabled={buttonFeedEnabled} onClick={handleSubmit}>
+        Feed
+      </button>
+    </div>
+  );
 };
 
 export default ButtonFeed;
