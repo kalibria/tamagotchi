@@ -33,6 +33,7 @@ export const MainField = ({ state, indicators }) => {
           setButtonFeedEnabled={setButtonFeedEnabled}
           stateIndicator={stateIndicator}
           state={state}
+          buttonFeedEnabled={buttonFeedEnabled}
         />
         <ButtonTreat
           stateIndicator={stateIndicator}

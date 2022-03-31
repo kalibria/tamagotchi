@@ -22,13 +22,14 @@ export const FoodIndicator = ({
   setFoodPercent,
   stateIndicator,
 }) => {
+  const maxSicknessTime = 15000;
   useInterval(
     () => {
       setFoodPercent(foodPercent - 1);
     },
     foodPercent === 0 || stateIndicator === "sick" || stateIndicator === "dead"
       ? null
-      : 500
+      : maxSicknessTime
   );
 
   return (

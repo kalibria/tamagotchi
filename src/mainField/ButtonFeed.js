@@ -4,26 +4,26 @@ const ButtonFeed = ({
   setFoodPercent,
   setAge,
   age,
-  setButtonFeedDisabled,
-  buttonFeedDisabled,
+  setButtonFeedEnabled,
+  buttonFeedEnabled,
   stateIndicator,
   state,
 }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    setButtonFeedDisabled(false);
+    setButtonFeedEnabled(false);
     setFoodPercent(state.initialFoodPercent);
     setAge(age + 1);
   };
   useEffect(() => {
     if (stateIndicator === "sick" || stateIndicator === "dead") {
-      setButtonFeedDisabled(true);
-    } else setButtonFeedDisabled(false);
+      setButtonFeedEnabled(true);
+    } else setButtonFeedEnabled(false);
   }, [stateIndicator]);
 
   return (
     <div>
-      <button disabled={buttonFeedDisabled} onClick={handleSubmit}>
+      <button disabled={buttonFeedEnabled} onClick={handleSubmit}>
         Feed
       </button>
     </div>
