@@ -4,8 +4,9 @@ import style from "../App.module.css";
 import { StateIndicator } from "../indicators/StateIndicator";
 import { FoodIndicator } from "../indicators/FoodIndicator";
 import { AgeIndicator } from "../indicators/AgeIndicator";
-import ButtonFeed from "./ButtonFeed";
-import { ButtonTreat } from "./ButtonTreat";
+import ButtonFeed from "../buttons/ButtonFeed";
+import { ButtonTreat } from "../buttons/ButtonTreat";
+import { Modal } from "../modal/Modal";
 
 export const MainField = ({ state, indicators }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
@@ -14,6 +15,7 @@ export const MainField = ({ state, indicators }) => {
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
   const [isRecovered, setIsRecovered] = useState(false);
+  // const [showModal, setShowModal] = useState("none");
 
   return (
     <div>
@@ -62,6 +64,16 @@ export const MainField = ({ state, indicators }) => {
         />
         <AgeIndicator age={age} />
       </div>
+      {stateIndicator === "dead" ? (
+        <Modal
+          age={age}
+          state={stateIndicator}
+          petName={state.name}
+          maxAge={indicators.age.maxAge}
+          // showModal={showModal}
+          // setShowModal={setShowModal}
+        />
+      ) : null}
     </div>
   );
 };
