@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import style from "../App.module.css";
 
 export const Modal = ({
   petName,
@@ -21,11 +22,10 @@ export const Modal = ({
     e.preventDefault();
     // setShowModal("none");
   };
-  console.log("age", age);
 
   return (
     <>
-      <div>
+      <div className={style.modalWindow}>
         {/*style={{ display: showModal }}>*/}
         <div>
           <p>{config.title}</p>

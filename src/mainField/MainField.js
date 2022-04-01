@@ -18,7 +18,7 @@ export const MainField = ({ state, indicators }) => {
   // const [showModal, setShowModal] = useState("none");
 
   return (
-    <div>
+    <div className={style.mainField}>
       <div>
         <img
           className={style.image}
@@ -64,6 +64,7 @@ export const MainField = ({ state, indicators }) => {
         />
         <AgeIndicator age={age} />
       </div>
+
       {stateIndicator === "dead" ? (
         <Modal
           age={age}
