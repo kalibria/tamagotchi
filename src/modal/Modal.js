@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "../App.module.css";
+import usePreviousValue from "../customHooks/usePreviousHook";
 
-export const Modal = ({ petName, age, maxAge }) => {
+export const Modal = ({
+  petName,
+  age,
+  maxAge,
+  stateIndicator,
+  prevStateIndicator,
+}) => {
   const config = {
     title: "Sorry your pet died!",
     text: {
@@ -12,11 +19,23 @@ export const Modal = ({ petName, age, maxAge }) => {
   };
 
   const [showModal, setShowModal] = useState("block");
+  const [textModalWindow, setTextModalWindow] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowModal("none");
   };
+
+  console.log("prevVal", prevStateIndicator);
+  useEffect(() => {
+    if (prevStateIndicator === "sick") {
+      setTextModalWindow(config.text.sicknessDeath);
+    } else if (prevStateIndicator === "hungry") {
+      setTextModalWindow(config.text.hungryDeath);
+    } else {
+      setTextModalWindow(config.text.naturalDeath);
+    }
+  }, [stateIndicator]);
 
   return (
     <>
@@ -24,7 +43,8 @@ export const Modal = ({ petName, age, maxAge }) => {
         <div className={style.wrapperCloseButton}>
           <div>
             <p>{config.title}</p>
-            {age > maxAge ? <p>{config.text.naturalDeath}</p> : null}
+            <p>{textModalWindow}</p>
+            {/*{age > maxAge ? <p>{config.text.naturalDeath}</p> : null}*/}
           </div>
           <div className={style.closeButton}>
             <button onClick={handleSubmit}>

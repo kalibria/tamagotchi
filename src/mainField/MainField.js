@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import style from "../App.module.css";
 
 import { StateIndicator } from "../indicators/StateIndicator";
@@ -7,6 +7,7 @@ import { AgeIndicator } from "../indicators/AgeIndicator";
 import ButtonFeed from "../buttons/ButtonFeed";
 import { ButtonTreat } from "../buttons/ButtonTreat";
 import { Modal } from "../modal/Modal";
+import usePreviousValue from "../customHooks/usePreviousHook";
 
 export const MainField = ({ state, indicators, petName }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
@@ -15,6 +16,8 @@ export const MainField = ({ state, indicators, petName }) => {
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
   const [isRecovered, setIsRecovered] = useState(false);
+
+  const prevStateIndicator = usePreviousValue(stateIndicator);
 
   return (
     <div className={style.mainField}>
@@ -70,6 +73,8 @@ export const MainField = ({ state, indicators, petName }) => {
           state={stateIndicator}
           petName={petName}
           maxAge={indicators.age.maxAge}
+          stateIndicator={stateIndicator}
+          prevStateIndicator={prevStateIndicator}
           // showModal={showModal}
           // setShowModal={setShowModal}
         />
