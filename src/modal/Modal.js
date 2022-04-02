@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import style from "../App.module.css";
-import usePreviousValue from "../customHooks/usePreviousHook";
 
 export const Modal = ({ petName, age, stateIndicator, prevStateIndicator }) => {
   const config = {
