@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import style from "../App.module.css";
 
-export const Modal = ({
-  petName,
-  age,
-  maxAge,
-  state,
-  showModal,
-  setShowModal,
-}) => {
+export const Modal = ({ petName, age, maxAge }) => {
   const config = {
     title: "Sorry your pet died!",
     text: {
@@ -18,20 +11,32 @@ export const Modal = ({
     },
   };
 
+  const [showModal, setShowModal] = useState("block");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setShowModal("none");
+    setShowModal("none");
   };
 
   return (
     <>
-      <div className={style.modalWindow}>
-        {/*style={{ display: showModal }}>*/}
-        <div>
-          <p>{config.title}</p>
-          {age > maxAge ? <p>{config.text.naturalDeath}</p> : null}
+      <div className={style.modalWindow} style={{ display: showModal }}>
+        <div className={style.wrapperCloseButton}>
+          <div>
+            <p>{config.title}</p>
+            {age > maxAge ? <p>{config.text.naturalDeath}</p> : null}
+          </div>
+          <div className={style.closeButton}>
+            <button onClick={handleSubmit}>
+              <img
+                className={style.imgCloseButton}
+                src={
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/OOjs_UI_icon_close.svg/1200px-OOjs_UI_icon_close.svg.png"
+                }
+              ></img>
+            </button>
+          </div>
         </div>
-        <button onClick={handleSubmit}>close</button>
       </div>
     </>
   );

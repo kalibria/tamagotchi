@@ -8,14 +8,13 @@ import ButtonFeed from "../buttons/ButtonFeed";
 import { ButtonTreat } from "../buttons/ButtonTreat";
 import { Modal } from "../modal/Modal";
 
-export const MainField = ({ state, indicators }) => {
+export const MainField = ({ state, indicators, petName }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
   const [age, setAge] = useState(state.initialAge);
   const [buttonFeedEnabled, setButtonFeedEnabled] = useState(false);
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
   const [isRecovered, setIsRecovered] = useState(false);
-  // const [showModal, setShowModal] = useState("none");
 
   return (
     <div className={style.mainField}>
@@ -69,7 +68,7 @@ export const MainField = ({ state, indicators }) => {
         <Modal
           age={age}
           state={stateIndicator}
-          petName={state.name}
+          petName={petName}
           maxAge={indicators.age.maxAge}
           // showModal={showModal}
           // setShowModal={setShowModal}
