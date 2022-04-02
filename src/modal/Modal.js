@@ -2,13 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "../App.module.css";
 import usePreviousValue from "../customHooks/usePreviousHook";
 
-export const Modal = ({
-  petName,
-  age,
-  maxAge,
-  stateIndicator,
-  prevStateIndicator,
-}) => {
+export const Modal = ({ petName, age, stateIndicator, prevStateIndicator }) => {
   const config = {
     title: "Sorry your pet died!",
     text: {
@@ -16,6 +10,7 @@ export const Modal = ({
       sicknessDeath: `${petName} died due to illness`,
       hungryDeath: `${petName} died due to starvation`,
     },
+    deathAge: `Age of death ${age}`,
   };
 
   const [showModal, setShowModal] = useState("block");
@@ -26,7 +21,6 @@ export const Modal = ({
     setShowModal("none");
   };
 
-  console.log("prevVal", prevStateIndicator);
   useEffect(() => {
     if (prevStateIndicator === "sick") {
       setTextModalWindow(config.text.sicknessDeath);
@@ -44,7 +38,7 @@ export const Modal = ({
           <div>
             <p>{config.title}</p>
             <p>{textModalWindow}</p>
-            {/*{age > maxAge ? <p>{config.text.naturalDeath}</p> : null}*/}
+            <p>{config.deathAge}</p>
           </div>
           <div className={style.closeButton}>
             <button onClick={handleSubmit}>

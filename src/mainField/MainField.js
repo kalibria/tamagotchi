@@ -72,11 +72,8 @@ export const MainField = ({ state, indicators, petName }) => {
           age={age}
           state={stateIndicator}
           petName={petName}
-          maxAge={indicators.age.maxAge}
           stateIndicator={stateIndicator}
           prevStateIndicator={prevStateIndicator}
-          // showModal={showModal}
-          // setShowModal={setShowModal}
         />
       ) : null}
     </div>
