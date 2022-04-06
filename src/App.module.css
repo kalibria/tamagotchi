@@ -7,11 +7,51 @@
 }
 
 .image {
-    width: 400px;
+    width: 300px;
 }
 
 .progressLine {
     width: 300px;
+}
+
+.mainField {
+    position: relative;
+}
+
+.modalWindow {
+    border: solid black 1px;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 10;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    width: 250px;
+    height: auto;
+    text-align: center;
+    padding: 15px;
+}
+
+.wrapperCloseButton {
+    position: relative;
+}
+
+
+.closeButton {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 230px;
+    top: -50px;
+
+}
+
+.imgCloseButton {
+    width: 100%;
 }
 
 

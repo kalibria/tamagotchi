@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import style from "../App.module.css";
 
 import { StateIndicator } from "../indicators/StateIndicator";
 import { FoodIndicator } from "../indicators/FoodIndicator";
 import { AgeIndicator } from "../indicators/AgeIndicator";
-import ButtonFeed from "./ButtonFeed";
-import { ButtonTreat } from "./ButtonTreat";
+import ButtonFeed from "../buttons/ButtonFeed";
+import { ButtonTreat } from "../buttons/ButtonTreat";
+import { Modal } from "../modal/Modal";
+import usePreviousValue from "../customHooks/usePreviousHook";
 
-export const MainField = ({ state, indicators }) => {
+export const MainField = ({ state, indicators, petName }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
   const [age, setAge] = useState(state.initialAge);
   const [buttonFeedEnabled, setButtonFeedEnabled] = useState(false);
@@ -15,8 +17,10 @@ export const MainField = ({ state, indicators }) => {
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
   const [isRecovered, setIsRecovered] = useState(false);
 
+  const prevStateIndicator = usePreviousValue(stateIndicator);
+
   return (
-    <div>
+    <div className={style.mainField}>
       <div>
         <img
           className={style.image}
@@ -62,6 +66,16 @@ export const MainField = ({ state, indicators }) => {
         />
         <AgeIndicator age={age} />
       </div>
+
+      {stateIndicator === "dead" ? (
+        <Modal
+          age={age}
+          state={stateIndicator}
+          petName={petName}
+          stateIndicator={stateIndicator}
+          prevStateIndicator={prevStateIndicator}
+        />
+      ) : null}
     </div>
   );
 };
