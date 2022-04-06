@@ -8,6 +8,7 @@ import ButtonFeed from "../buttons/ButtonFeed";
 import { ButtonTreat } from "../buttons/ButtonTreat";
 import { Modal } from "../modal/Modal";
 import usePreviousValue from "../customHooks/usePreviousHook";
+import { arrIllnesses, getIllness } from "../Illnesses/getIllness";
 
 export const MainField = ({ state, indicators, petName }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
@@ -18,6 +19,7 @@ export const MainField = ({ state, indicators, petName }) => {
   const [isRecovered, setIsRecovered] = useState(false);
 
   const prevStateIndicator = usePreviousValue(stateIndicator);
+  const illness = getIllness(arrIllnesses);
 
   return (
     <div className={style.mainField}>
@@ -58,6 +60,7 @@ export const MainField = ({ state, indicators, petName }) => {
           isRecovered={isRecovered}
           age={age}
           maxAge={indicators.age.maxAge}
+          illness={illness}
         />
         <FoodIndicator
           foodPercent={foodPercent}
@@ -74,6 +77,7 @@ export const MainField = ({ state, indicators, petName }) => {
           petName={petName}
           stateIndicator={stateIndicator}
           prevStateIndicator={prevStateIndicator}
+          illness={illness}
         />
       ) : null}
     </div>

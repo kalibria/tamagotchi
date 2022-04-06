@@ -16,6 +16,7 @@ export const StateIndicator = ({
   isRecovered,
   age,
   maxAge,
+  illness,
 }) => {
   useEffect(() => {
     setStateDependingFoodPercent(foodPercent, setStateIndicator);
@@ -43,13 +44,13 @@ export const StateIndicator = ({
     buttonTreatDisabled ? null : SICK_PET_TIME_TILL_DEATH_MS
   );
 
-  const illness = <span>illness: {getIllness(arrIllnesses)}</span>;
+  const petIllness = <span>illness: {illness}</span>;
 
   return (
     <div>
       {stateIndicator === "sick" ? (
         <p>
-          State: {stateIndicator} {illness}
+          State: {stateIndicator} {petIllness}
         </p>
       ) : (
         <p>State: {stateIndicator} </p>
