@@ -8,7 +8,8 @@ import ButtonFeed from "../buttons/ButtonFeed";
 import { ButtonTreat } from "../buttons/ButtonTreat";
 import { Modal } from "../modal/Modal";
 import usePreviousValue from "../customHooks/usePreviousHook";
-import { arrIllnesses, getIllness } from "../Illnesses/getIllness";
+import { getRandomEl } from "../getRandomEl/getRandomEl";
+import { arrIllnesses } from "../variables/variables";
 
 export const MainField = ({ state, indicators, petName }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
@@ -19,7 +20,7 @@ export const MainField = ({ state, indicators, petName }) => {
   const [isRecovered, setIsRecovered] = useState(false);
 
   const prevStateIndicator = usePreviousValue(stateIndicator);
-  const illness = getIllness(arrIllnesses);
+  const illness = getRandomEl(arrIllnesses);
 
   return (
     <div className={style.mainField}>

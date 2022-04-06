@@ -6,7 +6,7 @@ import {
   MAX_NUM_FOR_GetRandomNumber,
   SICK_PET_TIME_TILL_DEATH_MS,
 } from "../variables/variables";
-import { arrIllnesses, getIllness } from "../Illnesses/getIllness";
+import { arrIllnesses, getRandomEl } from "../getRandomEl/getRandomEl";
 
 export const StateIndicator = ({
   stateIndicator,
