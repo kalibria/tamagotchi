@@ -6,6 +6,7 @@ import {
   MAX_NUM_FOR_GetRandomNumber,
   SICK_PET_TIME_TILL_DEATH_MS,
 } from "../variables/variables";
+import { arrIllnesses, getIllness } from "../Illnesses/getIllness";
 
 export const StateIndicator = ({
   stateIndicator,
@@ -42,9 +43,17 @@ export const StateIndicator = ({
     buttonTreatDisabled ? null : SICK_PET_TIME_TILL_DEATH_MS
   );
 
+  const illness = <span>illness: {getIllness(arrIllnesses)}</span>;
+
   return (
     <div>
-      <p>State: {stateIndicator} </p>
+      {stateIndicator === "sick" ? (
+        <p>
+          State: {stateIndicator} {illness}
+        </p>
+      ) : (
+        <p>State: {stateIndicator} </p>
+      )}
     </div>
   );
 };
