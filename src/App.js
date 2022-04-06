@@ -7,15 +7,23 @@ import EnterName from "./name/EnterName";
 
 export const App = ({ config: { state, indicators } }) => {
   const [petName, setPetName] = useState(state.name);
-  if (petName) {
+  if (indicators.age.maxAge > 20) {
     return (
-      <div className={style.field}>
-        <PetName petName={petName} />
-        <MainField indicators={indicators} state={state} petName={petName} />
+      <div>
+        <p className={style.error}>ERROR</p>
       </div>
     );
   } else {
-    return <EnterName name={petName} setPetName={setPetName} />;
+    if (petName) {
+      return (
+        <div className={style.field}>
+          <PetName petName={petName} />
+          <MainField indicators={indicators} state={state} petName={petName} />
+        </div>
+      );
+    } else {
+      return <EnterName name={petName} setPetName={setPetName} />;
+    }
   }
 };
 
