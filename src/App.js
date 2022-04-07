@@ -7,15 +7,37 @@ import EnterName from "./name/EnterName";
 
 export const App = ({ config: { state, indicators } }) => {
   const [petName, setPetName] = useState(state.name);
-  if (petName) {
+  if (indicators.age.maxAge) {
+    if (indicators.age.maxAge > 20) {
+      console.error("REACT_APP_MAX_AGE is greater than 20");
+      return (
+        <div>
+          <p className={style.error}>ERROR</p>
+        </div>
+      );
+    } else {
+      if (petName) {
+        return (
+          <div className={style.field}>
+            <PetName petName={petName} />
+            <MainField
+              indicators={indicators}
+              state={state}
+              petName={petName}
+            />
+          </div>
+        );
+      } else {
+        return <EnterName name={petName} setPetName={setPetName} />;
+      }
+    }
+  } else {
+    console.error("you did not supply REACT_APP_MAX_AGE to the app");
     return (
-      <div className={style.field}>
-        <PetName petName={petName} />
-        <MainField indicators={indicators} state={state} petName={petName} />
+      <div>
+        <p className={style.error}>ERROR</p>
       </div>
     );
-  } else {
-    return <EnterName name={petName} setPetName={setPetName} />;
   }
 };
 

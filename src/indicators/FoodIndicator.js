@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from "../App.module.css";
 import { Progress } from "antd";
 import "antd/dist/antd.css";

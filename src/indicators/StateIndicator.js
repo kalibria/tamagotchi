@@ -15,14 +15,17 @@ export const StateIndicator = ({
   isRecovered,
   age,
   maxAge,
+  illness,
 }) => {
   useEffect(() => {
     setStateDependingFoodPercent(foodPercent, setStateIndicator);
-  }, [foodPercent]);
+  }, [foodPercent, setStateIndicator]);
 
   useEffect(() => {
-    if (age > maxAge) setStateIndicator("dead");
-  }, [age]);
+    if (age >= maxAge) {
+      setStateIndicator("dead");
+    }
+  }, [age, maxAge, setStateIndicator]);
 
   useEffect(() => {
     if (stateIndicator === "fine" || stateIndicator === "hungry") {
@@ -33,7 +36,7 @@ export const StateIndicator = ({
         );
       }
     }
-  }, [stateIndicator]);
+  }, [stateIndicator, isRecovered, setStateIndicator]);
 
   useTimeout(
     () => {
@@ -42,9 +45,17 @@ export const StateIndicator = ({
     buttonTreatDisabled ? null : SICK_PET_TIME_TILL_DEATH_MS
   );
 
+  const petIllness = <span>illness: {illness}</span>;
+
   return (
     <div>
-      <p>State: {stateIndicator} </p>
+      {stateIndicator === "sick" ? (
+        <p>
+          State: {stateIndicator} {petIllness}
+        </p>
+      ) : (
+        <p>State: {stateIndicator} </p>
+      )}
     </div>
   );
 };

@@ -33,7 +33,7 @@ export const config = {
       100: "green",
     },
     age: {
-      maxAge: 4,
+      maxAge: process.env.REACT_APP_MAX_AGE,
     },
   },
 };

@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import style from "../App.module.css";
 
-export const Modal = ({ petName, age, stateIndicator, prevStateIndicator }) => {
+export const Modal = ({
+  petName,
+  age,
+  stateIndicator,
+  prevStateIndicator,
+  illness,
+}) => {
   const config = {
     title: "Sorry your pet died!",
     text: {
       naturalDeath: `Your pet has lived a long great life… Rest in peace, ${petName}!`,
-      sicknessDeath: `${petName} died due to illness`,
+      sicknessDeath: `${petName} died due to illness ${illness}`,
       hungryDeath: `${petName} died due to starvation`,
     },
     deathAge: `Age of death ${age}`,
@@ -43,6 +49,7 @@ export const Modal = ({ petName, age, stateIndicator, prevStateIndicator }) => {
             <button onClick={handleSubmit}>
               <img
                 className={style.imgCloseButton}
+                alt={"close"}
                 src={
                   "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/OOjs_UI_icon_close.svg/1200px-OOjs_UI_icon_close.svg.png"
                 }
