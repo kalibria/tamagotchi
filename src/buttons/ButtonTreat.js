@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 export const ButtonTreat = ({
   stateIndicator,
@@ -14,7 +14,7 @@ export const ButtonTreat = ({
     } else if (stateIndicator === "dead") {
       setButtonTreatDisabled(true);
     }
-  }, [stateIndicator]);
+  }, [stateIndicator, setButtonTreatDisabled]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

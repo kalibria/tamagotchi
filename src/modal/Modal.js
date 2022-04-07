@@ -49,6 +49,7 @@ export const Modal = ({
             <button onClick={handleSubmit}>
               <img
                 className={style.imgCloseButton}
+                alt={"close"}
                 src={
                   "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/OOjs_UI_icon_close.svg/1200px-OOjs_UI_icon_close.svg.png"
                 }

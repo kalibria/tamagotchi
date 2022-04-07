@@ -6,7 +6,6 @@ import {
   MAX_NUM_FOR_GetRandomNumber,
   SICK_PET_TIME_TILL_DEATH_MS,
 } from "../variables/variables";
-import { arrIllnesses, getRandomEl } from "../getRandomEl/getRandomEl";
 
 export const StateIndicator = ({
   stateIndicator,
@@ -20,11 +19,13 @@ export const StateIndicator = ({
 }) => {
   useEffect(() => {
     setStateDependingFoodPercent(foodPercent, setStateIndicator);
-  }, [foodPercent]);
+  }, [foodPercent, setStateIndicator]);
 
   useEffect(() => {
-    if (age > maxAge) setStateIndicator("dead");
-  }, [age]);
+    if (age > maxAge - 1) {
+      setStateIndicator("dead");
+    }
+  }, [age, maxAge, setStateIndicator]);
 
   useEffect(() => {
     if (stateIndicator === "fine" || stateIndicator === "hungry") {
@@ -35,7 +36,7 @@ export const StateIndicator = ({
         );
       }
     }
-  }, [stateIndicator]);
+  }, [stateIndicator, isRecovered, setStateIndicator]);
 
   useTimeout(
     () => {

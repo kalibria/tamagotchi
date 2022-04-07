@@ -19,7 +19,7 @@ const ButtonFeed = ({
     if (stateIndicator === "sick" || stateIndicator === "dead") {
       setButtonFeedEnabled(true);
     } else setButtonFeedEnabled(false);
-  }, [stateIndicator]);
+  }, [stateIndicator, setButtonFeedEnabled]);
 
   return (
     <div>

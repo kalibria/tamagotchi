@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "../App.module.css";
 
 import { StateIndicator } from "../indicators/StateIndicator";
