@@ -22,7 +22,7 @@ export const StateIndicator = ({
   }, [foodPercent, setStateIndicator]);
 
   useEffect(() => {
-    if (age > maxAge - 1) {
+    if (age >= maxAge) {
       setStateIndicator("dead");
     }
   }, [age, maxAge, setStateIndicator]);

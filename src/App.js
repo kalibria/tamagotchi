@@ -9,7 +9,7 @@ export const App = ({ config: { state, indicators } }) => {
   const [petName, setPetName] = useState(state.name);
   if (indicators.age.maxAge) {
     if (indicators.age.maxAge > 20) {
-      console.log("REACT_APP_MAX_AGE is greater than 20");
+      console.error("REACT_APP_MAX_AGE is greater than 20");
       return (
         <div>
           <p className={style.error}>ERROR</p>
@@ -32,7 +32,7 @@ export const App = ({ config: { state, indicators } }) => {
       }
     }
   } else {
-    console.log("don’t supply REACT_APP_MAX_AGE to the app");
+    console.error("you did not supply REACT_APP_MAX_AGE to the app");
     return (
       <div>
         <p className={style.error}>ERROR</p>
