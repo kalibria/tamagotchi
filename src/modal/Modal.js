@@ -34,7 +34,13 @@ export const Modal = ({
     } else {
       setTextModalWindow(config.text.naturalDeath);
     }
-  }, [stateIndicator]);
+  }, [
+    stateIndicator,
+    config.text.hungryDeath,
+    config.text.naturalDeath,
+    config.text.sicknessDeath,
+    prevStateIndicator,
+  ]);
 
   return (
     <>

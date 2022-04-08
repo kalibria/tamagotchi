@@ -10,6 +10,7 @@ import { Modal } from "../modal/Modal";
 import usePreviousValue from "../customHooks/usePreviousHook";
 import { getRandomEl } from "../getRandomEl/getRandomEl";
 import { arrIllnesses } from "../variables/variables";
+import ReStartButton from "../buttons/Re-StartButton";
 
 export const MainField = ({ state, indicators, petName }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
@@ -72,14 +73,17 @@ export const MainField = ({ state, indicators, petName }) => {
       </div>
 
       {stateIndicator === "dead" ? (
-        <Modal
-          age={age}
-          state={stateIndicator}
-          petName={petName}
-          stateIndicator={stateIndicator}
-          prevStateIndicator={prevStateIndicator}
-          illness={illness}
-        />
+        <div className={style.modalWrapper}>
+          <Modal
+            age={age}
+            state={stateIndicator}
+            petName={petName}
+            stateIndicator={stateIndicator}
+            prevStateIndicator={prevStateIndicator}
+            illness={illness}
+          />
+          <ReStartButton />
+        </div>
       ) : null}
     </div>
   );
