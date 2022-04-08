@@ -19,6 +19,7 @@ export const MainField = ({ state, indicators, petName }) => {
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
   const [isRecovered, setIsRecovered] = useState(false);
+  const [showDivWithModal, setShowDivWithModal] = useState("block");
 
   const prevStateIndicator = usePreviousValue(stateIndicator);
   const illness = getRandomEl(arrIllnesses);
@@ -73,7 +74,10 @@ export const MainField = ({ state, indicators, petName }) => {
       </div>
 
       {stateIndicator === "dead" ? (
-        <div className={style.modalWrapper}>
+        <div
+          className={style.modalWrapper}
+          style={{ display: showDivWithModal }}
+        >
           <Modal
             age={age}
             state={stateIndicator}
@@ -82,7 +86,7 @@ export const MainField = ({ state, indicators, petName }) => {
             prevStateIndicator={prevStateIndicator}
             illness={illness}
           />
-          <ReStartButton />
+          <ReStartButton setShowDivWithModal={setShowDivWithModal} />
         </div>
       ) : null}
     </div>

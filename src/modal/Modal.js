@@ -18,8 +18,8 @@ export const Modal = ({
     deathAge: `Age of death ${age}`,
   };
 
-  const [showModal, setShowModal] = useState("block");
   const [textModalWindow, setTextModalWindow] = useState("");
+  const [showModal, setShowModal] = useState("block");
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,9 +1,10 @@
 import React from "react";
 import style from "../App.module.css";
 
-const ReStartButton = () => {
+const ReStartButton = ({ setShowDivWithModal }) => {
   let handleSubmit = (e) => {
     e.preventDefault();
+    setShowDivWithModal("none");
   };
 
   return (
