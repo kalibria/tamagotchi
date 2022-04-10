@@ -12,7 +12,7 @@ import { getRandomEl } from "../getRandomEl/getRandomEl";
 import { arrIllnesses } from "../variables/variables";
 import ReStartButton from "../buttons/Re-StartButton";
 
-export const MainField = ({ state, indicators, petName }) => {
+export const MainField = ({ state, indicators, petName, setPetName }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
   const [age, setAge] = useState(state.initialAge);
   const [buttonFeedEnabled, setButtonFeedEnabled] = useState(false);
@@ -21,7 +21,8 @@ export const MainField = ({ state, indicators, petName }) => {
   const [isRecovered, setIsRecovered] = useState(false);
   const [showDivWithModal, setShowDivWithModal] = useState("block");
 
-  const prevStateIndicator = usePreviousValue(stateIndicator);
+  // const prevStateIndicator = usePreviousValue(stateIndicator);
+
   const illness = getRandomEl(arrIllnesses);
 
   return (
@@ -83,10 +84,20 @@ export const MainField = ({ state, indicators, petName }) => {
             state={stateIndicator}
             petName={petName}
             stateIndicator={stateIndicator}
-            prevStateIndicator={prevStateIndicator}
+            // prevStateIndicator={prevStateIndicator}
             illness={illness}
           />
-          <ReStartButton setShowDivWithModal={setShowDivWithModal} />
+          <ReStartButton
+            setShowDivWithModal={setShowDivWithModal}
+            setPetName={setPetName}
+            initialName={state.name}
+            setFoodPercent={setFoodPercent}
+            initState={state.initialStatus}
+            initFoodPercent={state.initialFoodPercent}
+            setStateIndicator={setStateIndicator}
+            setAge={setAge}
+            initAge={state.initialAge}
+          />
         </div>
       ) : null}
     </div>
