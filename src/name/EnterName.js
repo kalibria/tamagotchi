@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import isValid from "../validates/isValid";
 import Error from "../validates/error";
 
-const EnterName = ({ name, setPetName }) => {
+const EnterName = ({ name, setPetName, setRestartBtn }) => {
   const [letters, setLetters] = useState(name);
   const [error, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setRestartBtn(false);
     if (isValid(letters) && name !== " ") {
       setError(false);
       setPetName(letters);

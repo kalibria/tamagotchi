@@ -12,7 +12,13 @@ import { getRandomEl } from "../getRandomEl/getRandomEl";
 import { arrIllnesses } from "../variables/variables";
 import ReStartButton from "../buttons/Re-StartButton";
 
-export const MainField = ({ state, indicators, petName, setPetName }) => {
+export const MainField = ({
+  state,
+  indicators,
+  petName,
+  setPetName,
+  setRestartBtn,
+}) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
   const [age, setAge] = useState(state.initialAge);
   const [buttonFeedEnabled, setButtonFeedEnabled] = useState(false);
@@ -24,7 +30,7 @@ export const MainField = ({ state, indicators, petName, setPetName }) => {
   const prevStateIndicator = usePreviousValue(
     stateIndicator === "dead" ? undefined : stateIndicator
   );
-  console.log("prevSt", prevStateIndicator);
+
   const illness = getRandomEl(arrIllnesses);
 
   return (
@@ -99,6 +105,7 @@ export const MainField = ({ state, indicators, petName, setPetName }) => {
             setStateIndicator={setStateIndicator}
             setAge={setAge}
             initAge={state.initialAge}
+            setRestartBtn={setRestartBtn}
           />
         </div>
       ) : null}

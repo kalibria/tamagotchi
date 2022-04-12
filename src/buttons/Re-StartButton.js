@@ -11,6 +11,7 @@ const ReStartButton = ({
   setStateIndicator,
   initAge,
   setAge,
+  setRestartBtn,
 }) => {
   let handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ const ReStartButton = ({
     setFoodPercent(initFoodPercent);
     setStateIndicator(initState);
     setAge(initAge);
+    setRestartBtn(true);
 
     return setShowDivWithModal("block");
   };
