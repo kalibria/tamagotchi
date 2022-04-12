@@ -9,6 +9,7 @@ const EnterName = ({ name, setPetName }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (isValid(letters) && name !== " ") {
       setError(false);
       setPetName(letters);

@@ -24,6 +24,7 @@ export const App = ({ config: { state, indicators } }) => {
               indicators={indicators}
               state={state}
               petName={petName}
+              setPetName={setPetName}
             />
           </div>
         );

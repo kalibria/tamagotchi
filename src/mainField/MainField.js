@@ -21,8 +21,10 @@ export const MainField = ({ state, indicators, petName, setPetName }) => {
   const [isRecovered, setIsRecovered] = useState(false);
   const [showDivWithModal, setShowDivWithModal] = useState("block");
 
-  // const prevStateIndicator = usePreviousValue(stateIndicator);
-
+  const prevStateIndicator = usePreviousValue(
+    stateIndicator === "dead" ? undefined : stateIndicator
+  );
+  console.log("prevSt", prevStateIndicator);
   const illness = getRandomEl(arrIllnesses);
 
   return (
@@ -84,7 +86,7 @@ export const MainField = ({ state, indicators, petName, setPetName }) => {
             state={stateIndicator}
             petName={petName}
             stateIndicator={stateIndicator}
-            // prevStateIndicator={prevStateIndicator}
+            prevStateIndicator={prevStateIndicator}
             illness={illness}
           />
           <ReStartButton

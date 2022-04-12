@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import style from "../App.module.css";
 
 export const Modal = ({
@@ -8,15 +8,18 @@ export const Modal = ({
   prevStateIndicator,
   illness,
 }) => {
-  const config = {
-    title: "Sorry your pet died!",
-    text: {
-      naturalDeath: `Your pet has lived a long great life… Rest in peace, ${petName}!`,
-      sicknessDeath: `${petName} died due to illness ${illness}`,
-      hungryDeath: `${petName} died due to starvation`,
-    },
-    deathAge: `Age of death ${age}`,
-  };
+  const config = useMemo(
+    () => ({
+      title: "Sorry your pet died!",
+      text: {
+        naturalDeath: `Your pet has lived a long great life… Rest in peace, ${petName}!`,
+        sicknessDeath: `${petName} died due to illness ${illness}`,
+        hungryDeath: `${petName} died due to starvation`,
+      },
+      deathAge: `Age of death ${age}`,
+    }),
+    [age, petName, illness]
+  );
 
   const [textModalWindow, setTextModalWindow] = useState("");
   const [showModal, setShowModal] = useState("block");
@@ -35,11 +38,11 @@ export const Modal = ({
       setTextModalWindow(config.text.naturalDeath);
     }
   }, [
-    stateIndicator,
     config.text.hungryDeath,
     config.text.naturalDeath,
     config.text.sicknessDeath,
     prevStateIndicator,
+    stateIndicator,
   ]);
 
   return (

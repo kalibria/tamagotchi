@@ -15,7 +15,7 @@ const ReStartButton = ({
   let handleSubmit = (e) => {
     e.preventDefault();
     setShowDivWithModal("none");
-    // setPetName(initialName);
+    setPetName(initialName);
     setFoodPercent(initFoodPercent);
     setStateIndicator(initState);
     setAge(initAge);
