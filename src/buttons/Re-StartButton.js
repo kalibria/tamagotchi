@@ -1,36 +1,25 @@
 import React from "react";
 import style from "../App.module.css";
+import { CountContext } from "../count-context";
 
-const ReStartButton = ({
-  setShowDivWithModal,
-  setPetName,
-  initialName,
-  setFoodPercent,
-  initState,
-  initFoodPercent,
-  setStateIndicator,
-  initAge,
-  setAge,
-  setRestartBtn,
-}) => {
-  let handleSubmit = (e) => {
-    e.preventDefault();
-    setShowDivWithModal("none");
-    setPetName(initialName);
-    setFoodPercent(initFoodPercent);
-    setStateIndicator(initState);
-    setAge(initAge);
-    setRestartBtn(true);
-
-    return setShowDivWithModal("block");
-  };
-
+const ReStartButton = () => {
   return (
-    <div className={style.reStartDiv}>
-      <button className={style.reStartBtn} onClick={handleSubmit}>
-        Re-start game
-      </button>
-    </div>
+    <CountContext.Consumer>
+      {({ setGamesCount }) => (
+        <div className={style.reStartDiv}>
+          <button
+            className={style.reStartBtn}
+            onClick={() => {
+              setGamesCount((prev) => {
+                return prev + 1;
+              });
+            }}
+          >
+            Re-start game
+          </button>
+        </div>
+      )}
+    </CountContext.Consumer>
   );
 };
 

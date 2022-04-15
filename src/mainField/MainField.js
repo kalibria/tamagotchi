@@ -12,20 +12,13 @@ import { getRandomEl } from "../getRandomEl/getRandomEl";
 import { arrIllnesses } from "../variables/variables";
 import ReStartButton from "../buttons/Re-StartButton";
 
-export const MainField = ({
-  state,
-  indicators,
-  petName,
-  setPetName,
-  setRestartBtn,
-}) => {
+export const MainField = ({ state, indicators, petName }) => {
   const [foodPercent, setFoodPercent] = useState(state.initialFoodPercent);
   const [age, setAge] = useState(state.initialAge);
   const [buttonFeedEnabled, setButtonFeedEnabled] = useState(false);
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
   const [isRecovered, setIsRecovered] = useState(false);
-  const [showDivWithModal, setShowDivWithModal] = useState("block");
 
   const prevStateIndicator = usePreviousValue(
     stateIndicator === "dead" ? undefined : stateIndicator
@@ -83,10 +76,7 @@ export const MainField = ({
       </div>
 
       {stateIndicator === "dead" ? (
-        <div
-          className={style.modalWrapper}
-          style={{ display: showDivWithModal }}
-        >
+        <div className={style.modalWrapper}>
           <Modal
             age={age}
             state={stateIndicator}
@@ -95,18 +85,7 @@ export const MainField = ({
             prevStateIndicator={prevStateIndicator}
             illness={illness}
           />
-          <ReStartButton
-            setShowDivWithModal={setShowDivWithModal}
-            setPetName={setPetName}
-            initialName={state.name}
-            setFoodPercent={setFoodPercent}
-            initState={state.initialStatus}
-            initFoodPercent={state.initialFoodPercent}
-            setStateIndicator={setStateIndicator}
-            setAge={setAge}
-            initAge={state.initialAge}
-            setRestartBtn={setRestartBtn}
-          />
+          <ReStartButton />
         </div>
       ) : null}
     </div>
