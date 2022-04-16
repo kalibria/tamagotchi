@@ -30,10 +30,11 @@ export const StateIndicator = ({
   useEffect(() => {
     if (stateIndicator === "fine" || stateIndicator === "hungry") {
       if (!isRecovered) {
-        setStateDependingRandomNum(
+        let timerID = setStateDependingRandomNum(
           MAX_NUM_FOR_GetRandomNumber,
           setStateIndicator
         );
+        return () => clearInterval(timerID);
       }
     }
   }, [stateIndicator, isRecovered, setStateIndicator]);

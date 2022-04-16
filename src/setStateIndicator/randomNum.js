@@ -12,4 +12,5 @@ export const setStateDependingRandomNum = (maxNum, setIndicator) => {
       return;
     }
   }, time_between_run_function_getRandomNumber_ms);
+  return timerId;
 };
