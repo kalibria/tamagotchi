@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { setStateDependingRandomNum } from "../setStateIndicator/randomNum";
 import { setStateDependingFoodPercent } from "../setStateIndicator/stateDependingFoodPercent";
 import { useTimeout } from "usehooks-ts";
@@ -18,6 +18,7 @@ export const StateIndicator = ({
   maxAge,
   illness,
 }) => {
+  const [colorAttention, setColorAttention] = useState("#132a13");
   useEffect(() => {
     setStateDependingFoodPercent(foodPercent, setStateIndicator);
   }, [foodPercent, setStateIndicator]);
@@ -40,6 +41,16 @@ export const StateIndicator = ({
     }
   }, [stateIndicator, isRecovered, setStateIndicator]);
 
+  useEffect(() => {
+    if (stateIndicator === "sick") {
+      setColorAttention("yellow");
+    } else if (stateIndicator === "hungry") {
+      setColorAttention("orange");
+    } else if (stateIndicator === "dead") {
+      setColorAttention("red");
+    } else setColorAttention("#132a13");
+  }, [stateIndicator]);
+
   useTimeout(
     () => {
       if (stateIndicator === "sick") setStateIndicator("dead");
@@ -53,10 +64,14 @@ export const StateIndicator = ({
     <div>
       {stateIndicator === "sick" ? (
         <p>
-          State: {stateIndicator} {petIllness}
+          State: <span style={{ color: colorAttention }}>{stateIndicator}</span>{" "}
+          <span> {petIllness} </span>
         </p>
       ) : (
-        <p className={style.text}>State: {stateIndicator} </p>
+        <p className={style.text}>
+          State:{" "}
+          <span style={{ color: colorAttention }}>{stateIndicator} </span>{" "}
+        </p>
       )}
     </div>
   );
