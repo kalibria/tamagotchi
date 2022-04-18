@@ -35,6 +35,7 @@ export const FoodIndicator = ({
 
   return (
     <div className={style.progressLine}>
+      <p className={style.text}>Food percents:</p>
       <ProgressLine foodPercent={foodPercent} />
     </div>
   );

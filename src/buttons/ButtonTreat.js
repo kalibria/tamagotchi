@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import style from "../App.module.css";
 
 export const ButtonTreat = ({
   stateIndicator,
@@ -26,7 +27,11 @@ export const ButtonTreat = ({
 
   return (
     <div>
-      <button disabled={buttonTreatDisabled} onClick={handleSubmit}>
+      <button
+        disabled={buttonTreatDisabled}
+        onClick={handleSubmit}
+        className={style.button}
+      >
         Treat
       </button>
     </div>

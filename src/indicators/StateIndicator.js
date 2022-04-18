@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { setStateDependingRandomNum } from "../setStateIndicator/randomNum";
 import { setStateDependingFoodPercent } from "../setStateIndicator/stateDependingFoodPercent";
 import { useTimeout } from "usehooks-ts";
@@ -6,6 +6,7 @@ import {
   MAX_NUM_FOR_GetRandomNumber,
   SICK_PET_TIME_TILL_DEATH_MS,
 } from "../variables/variables";
+import style from "../App.module.css";
 
 export const StateIndicator = ({
   stateIndicator,
@@ -17,6 +18,7 @@ export const StateIndicator = ({
   maxAge,
   illness,
 }) => {
+  const [colorAttention, setColorAttention] = useState("#132a13");
   useEffect(() => {
     setStateDependingFoodPercent(foodPercent, setStateIndicator);
   }, [foodPercent, setStateIndicator]);
@@ -30,13 +32,24 @@ export const StateIndicator = ({
   useEffect(() => {
     if (stateIndicator === "fine" || stateIndicator === "hungry") {
       if (!isRecovered) {
-        setStateDependingRandomNum(
+        let timerID = setStateDependingRandomNum(
           MAX_NUM_FOR_GetRandomNumber,
           setStateIndicator
         );
+        return () => clearInterval(timerID);
       }
     }
   }, [stateIndicator, isRecovered, setStateIndicator]);
+
+  useEffect(() => {
+    if (stateIndicator === "sick") {
+      setColorAttention("yellow");
+    } else if (stateIndicator === "hungry") {
+      setColorAttention("orange");
+    } else if (stateIndicator === "dead") {
+      setColorAttention("red");
+    } else setColorAttention("#132a13");
+  }, [stateIndicator]);
 
   useTimeout(
     () => {
@@ -51,10 +64,14 @@ export const StateIndicator = ({
     <div>
       {stateIndicator === "sick" ? (
         <p>
-          State: {stateIndicator} {petIllness}
+          State: <span style={{ color: colorAttention }}>{stateIndicator}</span>{" "}
+          <span> {petIllness} </span>
         </p>
       ) : (
-        <p>State: {stateIndicator} </p>
+        <p className={style.text}>
+          State:{" "}
+          <span style={{ color: colorAttention }}>{stateIndicator} </span>{" "}
+        </p>
       )}
     </div>
   );

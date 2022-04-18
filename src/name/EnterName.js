@@ -1,15 +1,15 @@
 import React, { useState } from "react";
+import style from "../App.module.css";
 
 import isValid from "../validates/isValid";
 import Error from "../validates/error";
 
-const EnterName = ({ name, setPetName, setRestartBtn }) => {
+const EnterName = ({ name, setPetName }) => {
   const [letters, setLetters] = useState(name);
   const [error, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setRestartBtn(false);
     if (isValid(letters) && name !== " ") {
       setError(false);
       setPetName(letters);
@@ -23,7 +23,7 @@ const EnterName = ({ name, setPetName, setRestartBtn }) => {
   };
 
   return (
-    <div>
+    <div className={style.enterName}>
       <form onBlur={handleSubmit}>
         <input
           type="text"
@@ -31,6 +31,7 @@ const EnterName = ({ name, setPetName, setRestartBtn }) => {
           name="name"
           value={letters}
           onChange={handleChange}
+          className={style.inputEnterName}
         />
         <button onClick={handleSubmit}>save</button>
       </form>

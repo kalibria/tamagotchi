@@ -7,7 +7,6 @@ import EnterName from "./name/EnterName";
 
 export const App = ({ config: { state, indicators } }) => {
   const [petName, setPetName] = useState(state.name);
-  const [reStartBtn, setRestartBtn] = useState(false);
 
   if (indicators.age.maxAge) {
     if (indicators.age.maxAge > 20) {
@@ -18,33 +17,22 @@ export const App = ({ config: { state, indicators } }) => {
         </div>
       );
     } else {
-      if (petName || reStartBtn) {
+      if (petName) {
         return (
-          <div className={style.field}>
-            <PetName
-              petName={petName}
-              initName={state.name}
-              setPetName={setPetName}
-              setRestartBtn={setRestartBtn}
-            />
-            <MainField
-              indicators={indicators}
-              state={state}
-              petName={petName}
-              setPetName={setPetName}
-              setRestartBtn={setRestartBtn}
-            />
+          <div>
+            <div className={style.field}>
+              <PetName petName={petName} />
+              <MainField
+                indicators={indicators}
+                state={state}
+                petName={petName}
+                setPetName={setPetName}
+              />
+            </div>
           </div>
         );
       } else {
-        return (
-          <EnterName
-            name={petName}
-            setPetName={setPetName}
-            key={"1"}
-            setRestartBtn={setRestartBtn}
-          />
-        );
+        return <EnterName name={petName} setPetName={setPetName} />;
       }
     }
   } else {

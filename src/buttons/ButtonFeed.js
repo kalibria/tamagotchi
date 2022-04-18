@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import style from "../App.module.css";
 
 const ButtonFeed = ({
   setFoodPercent,
@@ -23,7 +24,11 @@ const ButtonFeed = ({
 
   return (
     <div>
-      <button disabled={buttonFeedEnabled} onClick={handleSubmit}>
+      <button
+        disabled={buttonFeedEnabled}
+        onClick={handleSubmit}
+        className={style.button}
+      >
         Feed
       </button>
     </div>
