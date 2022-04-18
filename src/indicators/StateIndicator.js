@@ -6,6 +6,7 @@ import {
   MAX_NUM_FOR_GetRandomNumber,
   SICK_PET_TIME_TILL_DEATH_MS,
 } from "../variables/variables";
+import style from "../App.module.css";
 
 export const StateIndicator = ({
   stateIndicator,
@@ -55,7 +56,7 @@ export const StateIndicator = ({
           State: {stateIndicator} {petIllness}
         </p>
       ) : (
-        <p>State: {stateIndicator} </p>
+        <p className={style.text}>State: {stateIndicator} </p>
       )}
     </div>
   );

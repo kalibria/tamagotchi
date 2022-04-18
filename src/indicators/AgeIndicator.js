@@ -1,9 +1,10 @@
 import React from "react";
+import style from "../App.module.css";
 
 export const AgeIndicator = ({ age }) => {
   return (
     <div>
-      <p>Age: {age} </p>
+      <p className={style.text}>Age: {age} </p>
     </div>
   );
 };

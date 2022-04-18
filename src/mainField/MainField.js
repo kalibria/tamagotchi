@@ -35,6 +35,7 @@ export const MainField = ({ state, indicators, petName }) => {
           src="https://previews.123rf.com/images/albertzig/albertzig1210/albertzig121001555/15841024-3d-monstre-mignon-de-bande-dessin%C3%A9e.jpg"
         />
       </div>
+
       <div>
         <ButtonFeed
           foodIndicator={indicators.foodPercents}
@@ -55,8 +56,9 @@ export const MainField = ({ state, indicators, petName }) => {
           setIsRecovered={setIsRecovered}
         />
       </div>
+
       <div>
-        Life Indicators:
+        <p className={style.text}>Life Indicators: </p>
         <StateIndicator
           stateIndicator={stateIndicator}
           foodPercent={foodPercent}

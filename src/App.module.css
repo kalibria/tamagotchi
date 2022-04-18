@@ -1,9 +1,22 @@
-@import '~antd/dist/antd.css';
+/*@import '~antd/dist/antd.css';*/
 
 .field {
-    max-width: 600px;
+/*    max-width: 600px;*/
     max-height: 750px;
     background-color: gray;
+    padding: 10px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.fieldWrapper {
+    position: relative;
+    max-width: 800px;
+    max-height: 800px;
 }
 
 .image {
@@ -71,6 +84,35 @@
 .reStartBtn {
     border: solid black 1px;
     border-radius: 5px;
+}
+
+.petName {
+    margin-bottom: 5px;
+}
+
+.enterName {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.inputEnterName {
+    width: auto;
+    margin-right: 5px;
+    padding-right: 5px;
+}
+
+.button {
+    margin-top: 5px;
+    margin-right: -50%;
+    width: 50px;
+}
+
+.text {
+    margin-top: 10px;
+    padding: 0;
 }
 
 
