@@ -23,7 +23,8 @@ export const MainField = ({ state, indicators, petName }) => {
     stateIndicator === "dead" ? undefined : stateIndicator
   );
 
-  const illness = getRandomEl(arrIllnesses);
+  // const illness = getRandomEl(arrIllnesses);
+  const [illnessName] = useState(getRandomEl(arrIllnesses));
 
   return (
     <div className={style.mainField}>
@@ -64,7 +65,7 @@ export const MainField = ({ state, indicators, petName }) => {
           buttonTreatDisabled={buttonTreatDisabled}
           age={age}
           maxAge={indicators.age.maxAge}
-          illness={illness}
+          illness={illnessName}
         />
         <FoodIndicator
           foodPercent={foodPercent}
@@ -82,7 +83,7 @@ export const MainField = ({ state, indicators, petName }) => {
             petName={petName}
             stateIndicator={stateIndicator}
             prevStateIndicator={prevStateIndicator}
-            illness={illness}
+            illness={illnessName}
           />
           <ReStartButton />
         </div>
