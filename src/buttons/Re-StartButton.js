@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../App.module.css";
-import { CountContext } from "../count-context";
+import { CountContext } from "../countContext";
 
 const ReStartButton = () => {
   return (

@@ -7,7 +7,6 @@ export const ButtonTreat = ({
   setButtonFeedEnabled,
   buttonTreatDisabled,
   setButtonTreatDisabled,
-  setIsRecovered,
 }) => {
   useEffect(() => {
     if (stateIndicator === "sick") {
@@ -22,7 +21,6 @@ export const ButtonTreat = ({
     setStateIndicator("fine");
     setButtonFeedEnabled(false);
     setButtonTreatDisabled(true);
-    setIsRecovered(true);
   };
 
   return (

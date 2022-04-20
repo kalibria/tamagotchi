@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import App from "./App";
 import { config } from "./config";
-import { CountContext } from "./count-context";
+import { CountContext } from "./countContext";
 import style from "./App.module.css";
 
 ReactDOM.render(

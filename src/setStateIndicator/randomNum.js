@@ -1,16 +1,8 @@
-export const getRandomNumber = (max) => {
-  return Math.floor(Math.random() * max);
-};
-
-export const setStateDependingRandomNum = (maxNum, setIndicator) => {
+export const setStateDependingRandomNum = (setIndicator) => {
   const time_between_run_function_getRandomNumber_ms = 5000;
   let timerId = setInterval(() => {
-    let randomNumber = getRandomNumber(maxNum);
-    if (randomNumber === 1) {
-      setIndicator("sick");
-      clearInterval(timerId);
-      return;
-    }
+    let randomNumber = Math.random() > 0.2 ? null : setIndicator("sick");
+    console.log("randomNum", randomNumber);
   }, time_between_run_function_getRandomNumber_ms);
   return timerId;
 };

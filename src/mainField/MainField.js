@@ -18,7 +18,6 @@ export const MainField = ({ state, indicators, petName }) => {
   const [buttonFeedEnabled, setButtonFeedEnabled] = useState(false);
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
-  const [isRecovered, setIsRecovered] = useState(false);
 
   const prevStateIndicator = usePreviousValue(
     stateIndicator === "dead" ? undefined : stateIndicator
@@ -53,7 +52,6 @@ export const MainField = ({ state, indicators, petName }) => {
           setButtonFeedEnabled={setButtonFeedEnabled}
           buttonTreatDisabled={buttonTreatDisabled}
           setButtonTreatDisabled={setButtonTreatDisabled}
-          setIsRecovered={setIsRecovered}
         />
       </div>
 
@@ -64,7 +62,6 @@ export const MainField = ({ state, indicators, petName }) => {
           foodPercent={foodPercent}
           setStateIndicator={setStateIndicator}
           buttonTreatDisabled={buttonTreatDisabled}
-          isRecovered={isRecovered}
           age={age}
           maxAge={indicators.age.maxAge}
           illness={illness}
