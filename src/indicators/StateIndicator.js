@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { setStateDependingRandomNum } from "../setStateIndicator/randomNum";
+import { setIsSick } from "../setStateIndicator/setIsSick";
 import { setStateDependingFoodPercent } from "../setStateIndicator/stateDependingFoodPercent";
 import { useTimeout } from "usehooks-ts";
-import {
-  MAX_NUM_FOR_GetRandomNumber,
-  SICK_PET_TIME_TILL_DEATH_MS,
-} from "../variables/variables";
+import { SICK_PET_TIME_TILL_DEATH_MS } from "../variables/variables";
 import style from "../App.module.css";
 
 export const StateIndicator = ({
@@ -31,13 +28,8 @@ export const StateIndicator = ({
 
   useEffect(() => {
     if (stateIndicator === "fine" || stateIndicator === "hungry") {
-      if (!isRecovered) {
-        let timerID = setStateDependingRandomNum(
-          MAX_NUM_FOR_GetRandomNumber,
-          setStateIndicator
-        );
-        return () => clearInterval(timerID);
-      }
+      let timerID = setIsSick(setStateIndicator);
+      return () => clearInterval(timerID);
     }
   }, [stateIndicator, isRecovered, setStateIndicator]);
 

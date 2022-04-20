@@ -18,13 +18,11 @@ export const MainField = ({ state, indicators, petName }) => {
   const [buttonFeedEnabled, setButtonFeedEnabled] = useState(false);
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
-  const [isRecovered, setIsRecovered] = useState(false);
+  const [illnessName] = useState(getRandomEl(arrIllnesses));
 
   const prevStateIndicator = usePreviousValue(
     stateIndicator === "dead" ? undefined : stateIndicator
   );
-
-  const illness = getRandomEl(arrIllnesses);
 
   return (
     <div className={style.mainField}>
@@ -53,7 +51,6 @@ export const MainField = ({ state, indicators, petName }) => {
           setButtonFeedEnabled={setButtonFeedEnabled}
           buttonTreatDisabled={buttonTreatDisabled}
           setButtonTreatDisabled={setButtonTreatDisabled}
-          setIsRecovered={setIsRecovered}
         />
       </div>
 
@@ -64,10 +61,9 @@ export const MainField = ({ state, indicators, petName }) => {
           foodPercent={foodPercent}
           setStateIndicator={setStateIndicator}
           buttonTreatDisabled={buttonTreatDisabled}
-          isRecovered={isRecovered}
           age={age}
           maxAge={indicators.age.maxAge}
-          illness={illness}
+          illness={illnessName}
         />
         <FoodIndicator
           foodPercent={foodPercent}
@@ -85,7 +81,7 @@ export const MainField = ({ state, indicators, petName }) => {
             petName={petName}
             stateIndicator={stateIndicator}
             prevStateIndicator={prevStateIndicator}
-            illness={illness}
+            illness={illnessName}
           />
           <ReStartButton />
         </div>

@@ -1,7 +1,7 @@
 import { setStateDependingFoodPercent } from "./stateDependingFoodPercent";
-import { setStateDependingRandomNum } from "./randomNum";
+import { setIsSick } from "./setIsSick";
 
-import * as _getRandomNumber from "./randomNum";
+import * as _getRandomNumber from "./setIsSick";
 
 describe("setStateIndicator", () => {
   describe("setState depending on foodPercent", function () {
