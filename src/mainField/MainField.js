@@ -18,13 +18,11 @@ export const MainField = ({ state, indicators, petName }) => {
   const [buttonFeedEnabled, setButtonFeedEnabled] = useState(false);
   const [stateIndicator, setStateIndicator] = useState(state.initialStatus);
   const [buttonTreatDisabled, setButtonTreatDisabled] = useState(true);
+  const [illnessName] = useState(getRandomEl(arrIllnesses));
 
   const prevStateIndicator = usePreviousValue(
     stateIndicator === "dead" ? undefined : stateIndicator
   );
-
-  // const illness = getRandomEl(arrIllnesses);
-  const [illnessName] = useState(getRandomEl(arrIllnesses));
 
   return (
     <div className={style.mainField}>
