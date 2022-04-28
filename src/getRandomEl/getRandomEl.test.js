@@ -2,7 +2,7 @@ const { getRandomEl } = require("./getRandomEl");
 
 describe("getRandomEl", () => {
   it("get first El", () => {
-    const mathRandomSpy = jest.spyOn(global.Math, "floor").mockReturnValue(0);
+    jest.spyOn(global.Math, "floor").mockReturnValue(0);
     const result = getRandomEl([1, 2, 3, 4, 5]);
     expect(result).toEqual(1);
   });

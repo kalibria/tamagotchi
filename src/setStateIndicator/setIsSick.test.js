@@ -1,5 +1,9 @@
 import { setIsSick } from "./setIsSick";
+import { time_between_run_function_getRandomNumber_ms } from "../variables/variables";
 
+afterEach(() => {
+  jest.useRealTimers();
+});
 jest.useFakeTimers();
 
 describe("setIsSick", () => {
@@ -10,7 +14,6 @@ describe("setIsSick", () => {
 
     jest.advanceTimersByTime(5000);
 
-    expect(callback).toBeCalled();
     expect(callback).toHaveBeenCalledTimes(1);
     expect(callback).toHaveBeenCalledWith("sick");
   });
@@ -20,7 +23,7 @@ describe("setIsSick", () => {
     jest.spyOn(global.Math, "random").mockReturnValue(0.3);
     setIsSick(callback);
 
-    jest.advanceTimersByTime(5000);
+    jest.advanceTimersByTime(time_between_run_function_getRandomNumber_ms);
 
     expect(callback).not.toBeCalled();
   });
@@ -30,7 +33,7 @@ describe("setIsSick", () => {
     jest.spyOn(global.Math, "random").mockReturnValue(0.3);
     const result = setIsSick(callback);
 
-    jest.advanceTimersByTime(5000);
+    jest.advanceTimersByTime(time_between_run_function_getRandomNumber_ms);
 
     expect(result).toEqual(expect.any(Number));
   });
