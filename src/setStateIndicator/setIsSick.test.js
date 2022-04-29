@@ -1,12 +1,13 @@
 import { setIsSick } from "./setIsSick";
 import { time_between_run_function_getRandomNumber_ms } from "../variables/variables";
 
-afterEach(() => {
-  jest.useRealTimers();
-});
-jest.useFakeTimers();
-
 describe("setIsSick", () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.useRealTimers();
+  });
   it("calls callback", () => {
     const callback = jest.fn();
     jest.spyOn(global.Math, "random").mockReturnValue(0.1);
