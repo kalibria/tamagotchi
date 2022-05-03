@@ -17,4 +17,6 @@ The state is stored in a **local state** using **useState** and using **Context*
 The project contains tests that were writing using **Jest** and **React Testing Library**.
 
 
+`npm start` - run the project in dev mode
+`npm run test` - run all tests
  
