@@ -18,5 +18,6 @@ The project contains tests that were writing using **Jest** and **React Testing 
 
 
 `npm start` - run the project in dev mode
+
 `npm run test` - run all tests
  
