@@ -2,6 +2,8 @@
 
 The project was created using **React** and **JavaScript**.
 
+![Tamagotchi](/public/Screenshot.png)  
+
 The game starts with giving a pet name. The program logic checks the correctness of the entered characters using **regular expressions**.
 
 It is necessary to monitor the food indicator which decreases due to the implementation of the **useInterval hook**. The food indicator is realised using **Ant Design library**.
