@@ -2,7 +2,7 @@
 
 The project was created using **React** and **JavaScript**.
 
-![image](https://user-images.githubusercontent.com/48153140/166917066-6906a822-cc3a-4756-a88b-fddf36d444d2.png)
+![image](https://user-images.githubusercontent.com/48153140/166917977-48d19bfe-a001-42c5-9e36-2f1cca836c7f.png)
 
 The game starts with giving a pet name. The program logic checks the correctness of the entered characters using **regular expressions**.
 
