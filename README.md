@@ -2,7 +2,7 @@
 
 The project was created using **React** and **JavaScript**.
 
-![Tamagotchi](/public/Screenshot.png)  
+![image](https://user-images.githubusercontent.com/48153140/166917066-6906a822-cc3a-4756-a88b-fddf36d444d2.png)
 
 The game starts with giving a pet name. The program logic checks the correctness of the entered characters using **regular expressions**.
 
